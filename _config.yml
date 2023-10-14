@@ -82,9 +82,8 @@ analytics:
 author:
   name             : "Group 13"
   avatar           : "G13.jpeg"
-  bio              : >
-                     Ann An
-                     Marshall Ma
+  bio              : Ann An<br />
+                     Marshall Ma<br />
                      Gaston Cordero Chaves
   # location         : "Location"
   employer         :
