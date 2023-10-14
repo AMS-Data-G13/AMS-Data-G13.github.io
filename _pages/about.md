@@ -10,8 +10,8 @@ redirect_from:
 
 Paris is hosting the Paralympics in 2024. One of the events at the Paralympics is an open water swimming event in the Seine (apparently the water is clean or so the French say). Since the City of Amsterdam thinks it is better than Paris, they want to host an event before the Paralympics, snubbing the Parisians. The idea is to host a 5km. open water swimming event through the canals of Amsterdam. You are asked by the municipality of Amsterdam to advise on the feasibility of the event from the perspective of the safety of the partaking athletes from an environmental perspective. The event is going to be hosted in May.
 
-Assignment 1
-======
+Assignment 1 - Paralympics
+------
 * The event can’t have an impact on commercial water transport.
 * It would be appreciated if the event also has small impact on the routes of the canal boats.
 * What is the pollution level of the canals and is there data from all the canals? You can swim next to the AMS but the water there is heavily monitored, is this the same for the rest of Amsterdam?
@@ -22,35 +22,42 @@ Assignment 1
 * If you have geospatial data, can you figure out how the data is geometrically represented (points, lines, surfaces, hyperplanes)?
 * If it is temporal data, what is the interval?
 
-Getting started
-======
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Fork [this repository](https://github.com/academicpages/academicpages.github.io) by clicking the "fork" button in the top right. 
-1. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and create content & metadata (see below -- also see [this set of diffs](http://archive.is/3TPas) showing what files were changed to set up [an example site](https://getorg-testacct.github.io) for a user with the username "getorg-testacct")
-1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
-
-Site-wide configuration
+Assignment 2 - TourBoats
 ------
-The main configuration file for the site is in the base directory in [_config.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_config.yml), which defines the content in the sidebars and other site-wide features. You will need to replace the default variables with ones about yourself and your site's github repository. The configuration file for the top menu is in [_data/navigation.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_data/navigation.yml). For example, if you don't have a portfolio or blog posts, you can remove those items from that navigation.yml file to remove them from the header. 
+The Municipality is worried that the canal- and support boats might pollute the air with their diesel engines. Since the Municipality wants to create ideal conditions for the swimmers so they can set records (always nice for PR), it is your task to figure out if their concern is warranted and what should or could be done to improve conditions. Next to that, Amsterdam 
+wants to advertise this event as a Neutral Energy Event©™® (NEE).
 
-Create content & metadata
+* How many of the canal boats currently in use are diesel/fossil fuel driven and how many boats are electrical driven?
+* Are there peak times for the canal boats? 
+* Try to compare the energy use of the canal boats to some other activities in the city. Use canal boats more or less energy in relation to their carbon footprint compared to these other activities?
+* Would you consider it economically feasible?
+* How many support boats and vehicles are needed for the Paralympics event only.
+* If only clean energy can be used, how many solar panels or wind turbines are needed?
+* Is it possible to accommodate these facilities within the city?
+* Would their be any effect on the water quality if there are less/no canal boats using fossil fules?
+
+Assignment 3 - Housing
 ------
-For site content, there is one markdown file for each type of content, which are stored in directories like _publications, _talks, _posts, _teaching, or _pages. For example, each talk is a markdown file in the [_talks directory](https://github.com/academicpages/academicpages.github.io/tree/master/_talks). At the top of each markdown file is structured data in YAML about the talk, which the theme will parse to do lots of cool stuff. The same structured data about a talk is used to generate the list of talks on the [Talks page](https://academicpages.github.io/talks), each [individual page](https://academicpages.github.io/talks/2012-03-01-talk-1) for specific talks, the talks section for the [CV page](https://academicpages.github.io/cv), and the [map of places you've given a talk](https://academicpages.github.io/talkmap.html) (if you run this [python file](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.py) or [Jupyter notebook](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb), which creates the HTML for the map based on the contents of the _talks directory).
+For this exercise you need the data from [this website](https://data.amsterdam.nl/datasets/rl6-35tFAw2Ljw/basisbestand-gebieden-amsterdam-bbga/). Download the Basis Bestand Gebieden Amsterdam (BBGA), both the data and the documentation. You already have the AirBnB data from Amsterdam from the workshop exercise.
 
-**Markdown generator**
+The Municipality of Amsterdam is in a love hate relationship with AirBnb, see for example [this](https://thenextweb.com/news/four-months-after-its-hunt-for-illegal-hotels-amsterdam-lightens-restrictions-on-airbnb-rentals) and [this](https://www.theguardian.com/travel/2020/sep/14/airbnb-appeals-to-dutch-high-court-retain-double-fees) article. Amsterdam wants to get a bit of insight in the number of tourists that will make use of AirBnB. Can you advise on or calculate for Amsterdam:
 
-I have also created [a set of Jupyter notebooks](https://github.com/academicpages/academicpages.github.io/tree/master/markdown_generator
-) that converts a CSV containing structured data about talks or presentations into individual markdown files that will be properly formatted for the academicpages template. The sample CSVs in that directory are the ones I used to create my own personal website at stuartgeiger.com. My usual workflow is that I keep a spreadsheet of my publications and talks, then run the code in these notebooks to generate the markdown files, then commit and push them to the GitHub repository.
+* What Amsterdam will receive from tourist tax if the event lasts a week and you will have 30.000 visitors?
+* Plot the amount of AirBnB locations per neighbourhood.
+* Which street in Amsterdam has the most AirBnB apartments?
+* Try to cross reference the data from the AirBnB dataset with the BBGA. Can you figure out if all apartments of AirBnB are designated as housing? Which number of apartments are not rented out all the time but are also used as normal housing?
+* How many hotel rooms should be built if Amsterdam wants to accommodate the same number of tourists?
+* How many different licenses are issued?
 
-How to edit your site's GitHub repository
+Assignment 4 - Transport
 ------
-Many people use a git client to create files on their local computer and then push them to GitHub's servers. If you are not familiar with git, you can directly edit these configuration and markdown files directly in the github.com interface. Navigate to a file (like [this one](https://github.com/academicpages/academicpages.github.io/blob/master/_talks/2012-03-01-talk-1.md) and click the pencil icon in the top right of the content preview (to the right of the "Raw | Blame | History" buttons). You can delete a file by clicking the trashcan icon to the right of the pencil icon. You can also create new files or upload files by navigating to a directory and clicking the "Create new file" or "Upload files" buttons. 
+For this exercise you have chosen a route in Amsterdam for the canal swimming event. Preferably you have this route calculated using Python. You can set a start point and an end point and then try to find a route that has a certain distance (min. 5 km.)
 
-Example: editing a markdown file for a talk
-![Editing a markdown file for a talk](/images/editing-talk.png)
+The Municipality wants you to find a location for the Event Headquarters. They decided it would be best if this E.H. is as close to the centre of the swimming route. There is a bit of a concern for the after party and the stream of visitors. They want you to quantify the number of visitors that can reach the event and the capacity for festivities after the event.
 
-For more info
-------
-More info about configuring academicpages can be found in [the guide](https://academicpages.github.io/markdown/). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful.
+* Find the centre of the nodes of the swimming route. [See this link](https://stackoverflow.com/questions/46238813/osmnx-get-coordinates-of-nodes-using-osm-id).
+* Use the centre to find a suitable spot for the Event Headquarters.
+* Find the closest bus and tram stops at the start and finish of the swimming route. How many people can be transported within an hour.
+* Can you find which bus and tram lines these are, and can you find their routes?
+* Calculate the centrality of the start, finish, and centre node of the route. Which centrality calculation makes the most sense. [See this link](https://networkx.org/documentation/stable/reference/algorithms/centrality.html).
+* Find all cafes, restaurants near the finish line. Walking time smaller than 10 minutes.
