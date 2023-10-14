@@ -82,9 +82,9 @@ analytics:
 author:
   name             : "Group 13"
   avatar           : "G13.jpeg"
-  bio              : "Ann An"
-  bio              : "Marshall Ma"
-  bio              : "Gaston Cordero Chaves"
+  bio              : "Ann An\n
+                      Marshall Ma\n
+                      Gaston Cordero Chaves"
   # location         : "Location"
   employer         :
   # pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
