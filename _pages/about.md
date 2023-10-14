@@ -10,11 +10,17 @@ redirect_from:
 
 Paris is hosting the Paralympics in 2024. One of the events at the Paralympics is an open water swimming event in the Seine (apparently the water is clean or so the French say). Since the City of Amsterdam thinks it is better than Paris, they want to host an event before the Paralympics, snubbing the Parisians. The idea is to host a 5km. open water swimming event through the canals of Amsterdam. You are asked by the municipality of Amsterdam to advise on the feasibility of the event from the perspective of the safety of the partaking athletes from an environmental perspective. The event is going to be hosted in May.
 
-A data-driven personal website
+Assignment 1
 ======
-Like many other Jekyll-based GitHub Pages templates, academicpages makes you separate the website's content from its form. The content & metadata of your website are in structured markdown files, while various other files constitute the theme, specifying how to transform that content & metadata into HTML pages. You keep these various markdown (.md), YAML (.yml), HTML, and CSS files in a public GitHub repository. Each time you commit and push an update to the repository, the [GitHub pages](https://pages.github.com/) service creates static HTML pages based on these files, which are hosted on GitHub's servers free of charge.
-
-Many of the features of dynamic content management systems (like Wordpress) can be achieved in this fashion, using a fraction of the computational resources and with far less vulnerability to hacking and DDoSing. You can also modify the theme to your heart's content without touching the content of your site. If you get to a point where you've broken something in Jekyll/HTML/CSS beyond repair, your markdown files describing your talks, publications, etc. are safe. You can rollback the changes or even delete the repository and start over -- just be sure to save the markdown files! Finally, you can also write scripts that process the structured data on the site, such as [this one](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb) that analyzes metadata in pages about talks to display [a map of every location you've given a talk](https://academicpages.github.io/talkmap.html).
+* The event can’t have an impact on commercial water transport.
+* It would be appreciated if the event also has small impact on the routes of the canal boats.
+* What is the pollution level of the canals and is there data from all the canals? You can swim next to the AMS but the water there is heavily monitored, is this the same for the rest of Amsterdam?
+* Think of a few data sets that are of use for giving a proper advice to the municipality.
+* What type of data format is the information you found stored in? Are they Excel files, csv files or some other format? Try to open the files and see if they are human readable (e.g., are they text files or binary – in this case you see a lot of weird characters).
+* Is the data stored numerical?
+* You know how to read simple text files and a csv file from the first workshop. If you find other data formats, try to find a suitable Python library that can read that format.
+* If you have geospatial data, can you figure out how the data is geometrically represented (points, lines, surfaces, hyperplanes)?
+* If it is temporal data, what is the interval?
 
 Getting started
 ======
