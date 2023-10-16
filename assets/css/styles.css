@@ -28,8 +28,3 @@
 #toc a:hover {
  color: #9D174D;
 }
-
-.result li.active a {
-    color: lightgray;
-    cursor: default;
-}
