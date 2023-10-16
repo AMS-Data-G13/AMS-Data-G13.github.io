@@ -1,6 +1,5 @@
 ---
 permalink: /
-layout: post
 title: "Water: Paralympics in the Canals of Amsterdam"
 excerpt: "About"
 redirect_from: 
