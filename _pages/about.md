@@ -2,7 +2,7 @@
 permalink: /
 title: "Water: Paralympics in the Canals of Amsterdam"
 excerpt: "About"
-sidebar: toc
+author_profile: true
 redirect_from: 
   - /about/
   - /about.html
