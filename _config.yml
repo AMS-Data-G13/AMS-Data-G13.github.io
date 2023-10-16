@@ -267,6 +267,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-toc
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
@@ -311,3 +312,12 @@ compress_html:
   clippings: all
   ignore:
     envs: development
+
+
+# TOC Settings
+toc:
+ min_level: 1
+ max_level: 3
+ list_class: toc
+ list_class: toc__list
+ sublist_class: toc__sublist
