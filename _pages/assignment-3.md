@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Amsterdam Paralympics"
+title: "Amsterdam Housing"
 permalink: /assignment-3/
 author_profile: true
 ---
