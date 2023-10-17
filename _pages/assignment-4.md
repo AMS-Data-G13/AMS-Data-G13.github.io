@@ -28,6 +28,27 @@ pt = ox.graph_to_gdfs(city, edges=False).unary_union.centroid
 bbox = ox.utils_geo.bbox_from_point(location, dist=5000) 
 fig, ax = ox.plot_graph_route(city, path, bbox=bbox, show=False, close=False) 
 ```
+In Figure 1, the final chosen route is depicted in red, while other waterways and nodes are shown in white. 
+
+$$Alt_{centre} = \frac{sum_{i=1}^{n}\d{Alt_{node}}}{n}$$
+
+When calculating the centre point, we added the coordinates of all points along the track and divided the sum by the number of points. This calculation yielded the corrected coordinates of the centre point, (52.36604662, 4.9001779899999995). The central point was then plotted on the map, as illustrated in Figure 2. 
+
+```ruby
+lat = 0 
+lon = 0 
+for points in path: 
+    lat += city.nodes[points]['x'] 
+    lon += city.nodes[points]['y'] 
+lat_center = lat / len(path) 
+lon_center = lon / len(path) 
+center_point = (lon_center, lat_center) 
+print(center_point) 
+ax.scatter(lon_center, lat_center, c='blue') 
+plt.show()
+```
+![Spot](/images/Figure_2.png)
+<p style="text-align: center;"><span style="color:grey"> (Figure 2, The Centre Point)</span></p>
 
 ### 2.Use the centre to find a suitable spot for the Event Headquarters.
 
