@@ -9,8 +9,7 @@ author_profile: true
 
 ### Are there peak times for the canal boats?
 
-### Try to compare the energy use of the canal boats to some other activities in the city. Use canal boats more or less energy in relation to their carbon footprint compared to 
-these other activities?
+### Try to compare the energy use of the canal boats to some other activities in the city. Use canal boats more or less energy in relation to their carbon footprint compared to these other activities?
 
 ### Would you consider it economically feasible?
 
@@ -18,6 +17,6 @@ these other activities?
 
 ### If only clean energy can be used, how many solar panels or wind turbines are needed?
 
-### Is it possible to accommodate these facili�es within the city?
+### Is it possible to accommodate these facilities within the city?
 
 ### Would their be any effect on the water quality if there are less/no canal boats using fossil fules?
