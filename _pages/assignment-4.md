@@ -30,7 +30,7 @@ fig, ax = ox.plot_graph_route(city, path, bbox=bbox, show=False, close=False)
 ```
 In Figure 1, the final chosen route is depicted in red, while other waterways and nodes are shown in white. 
 
-$$Alt_{centre} = \frac{sum_{i=1}^{n}\d{Alt_{node}}}{n}$$
+$$Alt_{centre} = \frac{\sum_{i=1}^{n}\d{Alt_{node}}}{n}$$
 
 When calculating the centre point, we added the coordinates of all points along the track and divided the sum by the number of points. This calculation yielded the corrected coordinates of the centre point, (52.36604662, 4.9001779899999995). The central point was then plotted on the map, as illustrated in Figure 2. 
 
