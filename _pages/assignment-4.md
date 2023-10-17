@@ -8,7 +8,8 @@ author_profile: true
 ### 1.Find the centre of the nodes of the swimming route. [See this link](https://stackoverflow.com/questions/46238813/osmnx-get-coordinates-of-nodes-using-osm-id).
 
 First, we selected the starting and ending points for our route, which were AMS Institute and the Rijksmuseum, respectively. We then identified the nearest points on the Amsterdam canals corresponding to these two locations. Using these two points, we plotted the shortest path, which became the course for our activity. The path is shown in Figure 1 (luckily it's over 5 km). Combining the knowledge from Assignments 1 and 2, we chose a route that avoided areas of poor water quality and was therefore a good choice.
-![Route](/images/Figure_1.jpg)
+
+![Route](/images/Figure_1.png)
 <span style="color:grey"> (Figure 1, The Swimming Route)</span>
 
 ```ruby
