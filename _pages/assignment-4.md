@@ -9,7 +9,7 @@ author_profile: true
 
 First, we selected the starting and ending points for our route, which were AMS Institute and the Rijksmuseum, respectively. We then identified the nearest points on the Amsterdam canals corresponding to these two locations. Using these two points, we plotted the shortest path, which became the course for our activity. The path is shown in Figure 1 (luckily it's over 5 km). Combining the knowledge from Assignments 1 and 2, we chose a route that avoided areas of poor water quality and was therefore a good choice.
 
-<blink>
+```ruby
 ox.config(use_cache=True, log_console=True) 
 city = ox.graph_from_place('Amsterdam', retain_all=False, truncate_by_edge=False, 
                         simplify=True, custom_filter='["waterway"~"canal"]') 
@@ -24,7 +24,7 @@ print(path)
 pt = ox.graph_to_gdfs(city, edges=False).unary_union.centroid 
 bbox = ox.utils_geo.bbox_from_point(location, dist=5000) 
 fig, ax = ox.plot_graph_route(city, path, bbox=bbox, show=False, close=False) 
-</blink>
+```
 
 ### 2.Use the centre to find a suitable spot for the Event Headquarters.
 
