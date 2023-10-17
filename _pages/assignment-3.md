@@ -10,22 +10,16 @@ author_profile: true
 ### 2.Plot the amount of AirBnB locations per neighbourhood.
 
 ```ruby
+import pandas as pd
+import plotly.express as px
+
 airbnb = pd.read_csv('listings.csv') 
-neighbourhood = pd.read_csv('neighbourhoods.csv') 
-num = [] 
-name = [] 
-neighbourlist = neighbourhood.values.tolist() 
-for i in neighbourlist: 
-    #print(str(i[0])) 
-    sublist = airbnb.loc[airbnb['neighbourhood'] == str(i[0])] 
-    num.append(sublist.shape[0]) 
-    name.append(str(i[0])) 
-plt.barh(name, num) 
-#plt.bar(name, num) 
-plt.show()
+neighbourhood = airbnb.neighbourhood.value_counts()
+fig = px.bar(neighbourhood, y='count', text_auto=True)
+fig.show()
 ```
 
-![neighbourhood](/images/Figure_5.png) 
+![neighbourhood](/images/neighbourhood.png) 
 <p style="text-align: center;"> <span style="color:grey"> $\small (Figure 1, the amount of AirBnB locations per neighbourhood)$ </span> </p>
 
 After aggregating all the Airbnb listings in Amsterdam by neighborhood, the statistical results we obtained are presented in Figure 1. It is evident that the De Baarsjes-Oud-West area has the highest number of Airbnb listings, while Bijlmer-Oost has the fewest.
