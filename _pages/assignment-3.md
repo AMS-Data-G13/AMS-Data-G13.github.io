@@ -95,4 +95,4 @@ plt.show()
 In the Airbnb dataset, the last column contains license data, but understanding the types of licenses requires knowledge of the patterns associated with these licenses. After investigation, we determined that the types of licenses correspond to different room types. Therefore, the statistics on license types can be simplified into statistics on room type categories. The final results are illustrated in Figure 3. 
 
 ![license types](/images/Figure_7.png) 
-<p style="text-align: center;"> <span style="color:grey"> $\small (Figure 2, the statistics on license types)$ </span> </p>
+<p style="text-align: center;"> <span style="color:grey"> $\small (Figure 3, the statistics on license types)$ </span> </p>
