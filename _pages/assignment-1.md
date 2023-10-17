@@ -15,3 +15,11 @@ In Figure 2 circle markers indicate berths for passenger ships and triangle mark
 
 ![Figure 2](/images/boat.jpg)
 (Figure 2, Source: [Data Amsterdam](https://data.amsterdam.nl/data/bag/adressen/?center=52.3701361%2C4.8997119&lagen=water-ligplaatssegmenten_groot%7Cwater-ligplaatssegmenten_middel%7Cwater-ligplaatssegmenten_klein%7Cwater-ligplaatssegmenten_onbemand%7Cwater-ligplaatssegmenten_waterfietsen%7Cwater-op_afstaplocaties_passagiersvaart%7Cwater-op_afstaplocaties_passagiersvaart_laden_lossen%7Cwater-laden_lossen_transport_over_water%7Cwater-exclusieve_op_afstaplocatie_passagiersvaart&legenda=true))
+
+Concerned about the safety of athletes, we can base our discussion on Amber's research. Its research aims to simulate the quality of urban surface water in the Somerlust in Amsterdam and to link water quality to health risks for participants in swimming activities (Figure 3).
+
+![Figure 3](/images/map.jpg)
+(Figure 3, Map showing the waters of Amsterdam and the track of the ACS in relation to the location of Somerlust, Source: [(Swim) water quality modelling in the city 
+of Amsterdam](https://edepot.wur.nl/528034))
+
+
