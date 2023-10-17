@@ -73,8 +73,53 @@ From the centre point, we found the nearest location on the map of Amsterdam, as
 
 ### 3.Find the closest bus and tram stops at the start and finish of the swimming route. How many people can be transported within an hour.
 
+```ruby
+try: 
+    bus_stop = ox.features.features_from_point(location, tags={'public_transport': 'stop_position'}, dist=500) 
+    bus_stop.to_csv("bus_stop.csv") 
+    print(bus_stop.name) 
+except: 
+    print("no station in @‘dist’ metres") 
+try: 
+    bus_stop_to = ox.features.features_from_point(location_to, tags = {'public_transport': 'stop_position'}, dist=500) 
+    bus_stop_to.to_csv() 
+    bus_stop_to.to_csv("bus_stop_to.csv") 
+    print(bus_stop_to.name) 
+except: 
+    print("no station in @‘dist’ metres")
+```
+
+Initially, considering pedestrian accessibility, we searched for stations within a certain radius of the start and end points. We chose a search radius of 500 metres. Table 1 shows the list of stations collected.
+
+In the estimation, we have assumed an average arrival frequency of 5 buses per hour and 4 trams per hour (source: [Public transport in Amsterdam](https://www.introducingamsterdam.com/public-transport?_gl=1*q6cymw*_up*MQ..*_ga*MTI1NTU0Mjk1OS4xNjk3NTUyMjAw*_ga_216706797*MTY5NzU1MjIwMC4xLjAuMTY5NzU1MjIwMC4wLjAuMA..)). In addition, we estimate that the maximum capacity of each bus is 30 passengers and that of each tram is 50 passengers. Based on these rough estimates, we can calculate that the maximum interchange capacities of the stations near the origin and the terminus in an hour are 1,150 and 6,450 respectively.
+
 ### 4.Can you find which bus and tram lines these are, and can you find their routes?
 
 ### 5.Calculate the centrality of the start, finish, and centre node of the route. Which centrality calculation makes the most sense. [See this link](https://networkx.org/documentation/stable/reference/algorithms/centrality.html).
 
 ### 6.Find all cafes, restaurants near the finish line. Walking time smaller than 10 minutes.
+
+```ruby
+plt.close('all') 
+graph = ox.graph_from_point(location_to, dist=2100) 
+poi = ox.features.features_from_point(location_to, tags={'amenity': ['cafe','restaurant']}, dist=750) 
+target_node = ox.distance.nearest_nodes(graph, location_to[1], location_to[0], return_dist=True) 
+pt = ox.graph_to_gdfs(city_whole, edges=False).unary_union.centroid 
+bbox = ox.utils_geo.bbox_from_point(location_to, dist=2100) 
+fig2, ax2 = ox.plot_graph(city_whole, bbox=bbox, show=False, close=False) 
+name = [] 
+for row in poi.T.T.itertuples(): 
+    try: 
+        orig = getattr(row, 'geometry') 
+        name1 = getattr(row, 'name') 
+        orig_node = ox.distance.nearest_nodes(graph, orig.x, orig.y, return_dist=True) 
+        length = nx.shortest_path_length(G=graph, source=orig_node[0], target=target_node[0], weight='length') 
+        if length <750: 
+            name.append(name1) 
+            ax2.scatter(orig.x, orig.y, c='blue') 
+    except: 
+        pass 
+plt.show() 
+plt.savefig("4.jpg") 
+print(name)
+```
