@@ -18,9 +18,8 @@ neighbourhood = airbnb.neighbourhood.value_counts()
 fig = px.bar(neighbourhood, y='count', text_auto=True)
 fig.show()
 ```
-
 ![neighbourhood](/images/neighbourhood.png) 
-<p style="text-align: center;"> <span style="color:grey"> $\small (Figure 1, the amount of AirBnB locations per neighbourhood)$ </span> </p>
+<p style="text-align: center;"> <span style="color:grey"> (Figure 1, the amount of AirBnB locations per neighbourhood) </span> </p>
 
 After aggregating all the Airbnb listings in Amsterdam by neighborhood, the statistical results we obtained are presented in Figure 1. It is evident that the De Baarsjes-Oud-West area has the highest number of Airbnb listings, while Bijlmer-Oost has the fewest.
 
