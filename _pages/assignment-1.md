@@ -22,4 +22,4 @@ Concerned about the safety of athletes, we can base our discussion on Amber's re
 (Figure 3, Map showing the waters of Amsterdam and the track of the ACS in relation to the location of Somerlust, Source: [(Swim) water quality modelling in the city 
 of Amsterdam](https://edepot.wur.nl/528034))
 
-
+According to [the experience of organising the ACS](https://www.amsterdamcityswim.nl/english) and [Waternet's water quality monitoring system](https://www.wereldwaternet.nl/contentassets/6878882b104d4fac8fd131a367e203d6/full-paper-4714541---saskia-holthuijsen.pdf), we give the following advice:
