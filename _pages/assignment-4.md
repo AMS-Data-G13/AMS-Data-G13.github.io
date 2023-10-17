@@ -53,8 +53,8 @@ plt.show()
 
 When calculating the centre point, we added the coordinates of all points along the track and divided the sum by the number of points. This calculation yielded the corrected coordinates of the centre point, (52.36604662, 4.9001779899999995). The central point was then plotted on the map, as illustrated in Figure 2. 
 
-![Spot](/images/Figure_2.png) <p style="text-align: center;"> 
-<span style="color:grey"> $\small (Figure 2, The Centre Point)$ </span> </p>
+![Spot](/images/Figure_2.png) 
+<p style="text-align: center;"> <span style="color:grey"> $\small (Figure 2, The Centre Point)$ </span> </p>
 
 ### 2.Use the centre to find a suitable spot for the Event Headquarters.
 
