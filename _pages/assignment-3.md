@@ -7,13 +7,13 @@ author_profile: true
 
 ### 1.What Amsterdam will receive from tourist tax if the event lasts a week and you will have 30.000 visitors?
 
-According to City of Amsterdam, the details of the tourist tax are shown in Figure 1. However, from 2024 the tourist tax will rise to [12. 5%](https://www.amsterdam.nl/en/news/budget-2024/). And according to Statista, we learnt the average cost of an overnight stay in Amsterdam (Figure 2). 
+According to City of Amsterdam, the details of the tourist tax are shown in Figure 1. However, from 2024 the tourist tax will rise to [12. 5%](https://www.amsterdam.nl/en/news/budget-2024/). And according to Statista, we learnt the average cost of an overnight stay in Amsterdam in Figure 2. 
 
 ![tourist tax](/images/tourist_tax.jpg) <br>
-<span style="color:grey"> (tourist tax, resource: [City of Amsterdam](https://www.amsterdam.nl/en/municipal-taxes/tourist-tax-(toeristenbelasting)/)) </span> 
+<span style="color:grey"> (Figure 1, Tourist Tax, resource: [City of Amsterdam](https://www.amsterdam.nl/en/municipal-taxes/tourist-tax-(toeristenbelasting)/)) </span> 
 
 ![average price](/images/AverageCost.jpg) <br>
-<span style="color:grey"> (Average cost of overnight accommodation in Amsterdam, resource: [statista](https://www.statista.com/statistics/614061/overnight-accommodation-costs-amsterdam-city/)) </span>
+<span style="color:grey"> (Figure 2, Average cost of overnight accommodation in Amsterdam, resource: [statista](https://www.statista.com/statistics/614061/overnight-accommodation-costs-amsterdam-city/)) </span>
 
 As the event will take place in May, we refer to the average price of €294 per night in May 2023, and we assume that all 30,000 visitors will stay at the hotel. Then there will be two limiting scenarios.
 * In the first case, each person is in a separate room: <br>
