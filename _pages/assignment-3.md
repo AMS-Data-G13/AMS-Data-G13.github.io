@@ -10,7 +10,7 @@ author_profile: true
 According to City of Amsterdam, the details of the tourist tax are shown in Figure 1. However, from 2024 the tourist tax will rise to [12. 5%](https://www.amsterdam.nl/en/news/budget-2024/). And according to Statista, we learnt the average cost of an overnight stay in Amsterdam (Figure 2). 
 
 ![tourist tax](/images/tourist_tax.jpg) <br>
-<p style="text-align: center;"> <span style="color:grey"> (tourist tax, resource: </span> </p> [City of Amsterdam](https://www.amsterdam.nl/en/municipal-taxes/tourist-tax-(toeristenbelasting)/))
+<p style="text-align: center;"> <span style="color:grey"> (tourist tax, resource: </span> </p> [City of Amsterdam](https://www.amsterdam.nl/en/municipal-taxes/tourist-tax-(toeristenbelasting)/)) </span> </p> 
 
 ![average price](/images/AverageCost.jpg) <br>
 <p style="text-align: center;"> <span style="color:grey"> (Average cost of overnight accommodation in Amsterdam, resource: </span> </p> [statista](https://www.statista.com/statistics/614061/overnight-accommodation-costs-amsterdam-city/))
