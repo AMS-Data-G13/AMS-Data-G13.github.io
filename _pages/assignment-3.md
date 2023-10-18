@@ -114,24 +114,29 @@ Part of [csvfile: location](/files/location.csv)
 | 8386 | Eemsstraat, Rijnbuurt, Zuid, Amsterdam, Noord-Holland, Nederland, 1079 BS, Nederland                                                              | (52.34204645, 4.909319813263932)        |
 
 ```ruby
-geolocator = Nominatim(user_agent="lenovo") 
-airbnb1 = airbnb.sample(n=10) #randomly choose 10 rows for showing 
-Loc = airbnb1[['latitude','longitude']] 
-street = [] 
-for ind,row in Loc.iterrows(): 
-    a = str(row['latitude']) 
-    b = str(row['longitude']) 
-    address = geolocator.reverse(a+","+b) 
-    address_split = address.address.split(',') 
-    street.append(address_split[1]) 
-street.to_csv("street.csv") 
-print(street)
+import pandas as pd
+from collections import Counter
+
+Location = pd.read_csv('location.csv') 
+street = []
+for i, row in Location.iterrows():
+    Location_split = row[1].split(',')
+    street.append(Location_split[-2]) 
+
+count = Counter(street)
+# print(count)
+postcode = pd.DataFrame(count, index=[0])
+postcode.to_csv('postcode.csv', index=False)
 ```
 
-Since the Airbnb dataset did not include street-level information, we utilized geolocation services to find the corresponding street names based on coordinates. Due to the time-consuming nature of this process, for the assignment, we randomly selected ten Airbnb rental properties, determined their addresses, and extracted the street names. The results are presented in Figure 2. (If street names were successfully identified for all properties, the subsequent statistical process should be similar to that described in Question 2.)
+| postcode | count |
+| -------- | ----- |
+|  1052 CH | 175   |
+|  1012 AR | 47    |
+|  1015 RR | 24    |
+|  1011 TE | 21    |
+|  1015 HJ | 20    |
 
-![street name](/images/Figure_6.png) 
-<p style="text-align: center;"> <span style="color:grey"> $\small (Figure 2, the street names)$ </span> </p>
 
 ### 4.Try to cross reference the data from the AirBnB dataset with the BBGA. Can you figure out if all apartments of AirBnB are designated as housing? Which number of apartments are not rented out all the time but are also used as normal housing?
 
