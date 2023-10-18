@@ -51,7 +51,7 @@ for i,row in Loc.iterrows():
         writer.writerow(address)
         csvfile.close()
 ```
-Part of file:
+Part of [csvfile: location](/files/location.csv)
 
 |      | location                                                                                                                                          |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
