@@ -11,6 +11,7 @@ According to City of Amsterdam, the details of the tourist tax are shown in Figu
 
 ![tourist tax](/images/tourist_tax.jpg) </br>
 <p style="text-align: center;"> <span style="color:grey"> (tourist tax, resource: </span> </p> [City of Amsterdam](https://www.amsterdam.nl/en/municipal-taxes/tourist-tax-(toeristenbelasting)/))
+
 ![average price](/images/AverageCost.jpg) </br>
 <p style="text-align: center;"> <span style="color:grey"> (Average cost of overnight accommodation in Amsterdam, resource: </span> </p> [statista](https://www.statista.com/statistics/614061/overnight-accommodation-costs-amsterdam-city/))
 
