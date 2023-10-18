@@ -7,21 +7,21 @@ author_profile: true
 
 ### 1.What Amsterdam will receive from tourist tax if the event lasts a week and you will have 30.000 visitors?
 
-According to City of Amsterdam, the details of the tourist tax are shown in Figure 1. And according to Statista, we learnt the average cost of an overnight stay in Amsterdam (Figure 2). 
+According to City of Amsterdam, the details of the tourist tax are shown in Figure 1. However, from 2024 the tourist tax will rise to [12. 5%](https://www.amsterdam.nl/en/news/budget-2024/). And according to Statista, we learnt the average cost of an overnight stay in Amsterdam (Figure 2). 
 
-![tourist tax](/images/tourist_tax.jpg) </br>
+![tourist tax](/images/tourist_tax.jpg) <br>
 <p style="text-align: center;"> <span style="color:grey"> (tourist tax, resource: </span> </p> [City of Amsterdam](https://www.amsterdam.nl/en/municipal-taxes/tourist-tax-(toeristenbelasting)/))
 
-![average price](/images/AverageCost.jpg) </br>
+![average price](/images/AverageCost.jpg) <br>
 <p style="text-align: center;"> <span style="color:grey"> (Average cost of overnight accommodation in Amsterdam, resource: </span> </p> [statista](https://www.statista.com/statistics/614061/overnight-accommodation-costs-amsterdam-city/))
 
 As the event will take place in May, we refer to the average price of €294 per night in May 2023, and we assume that all 30,000 visitors will stay at the hotel. Then there will be two limiting scenarios.
-* In the first case, each person is in a separate room: </br>
-  (294 * 7% + 3) * 30000 * 7 = 4,951,800
-* The second scenario is where everyone is sharing a room with someone else (double occupancy): </br>
-  (294 * 7% + 3 * 2) * 15000 * 7 = 2,790,900
+* In the first case, each person is in a separate room: <br>
+  (294 * 12.5% + 3) * 30000 * 7 = 8,347,500
+* The second scenario is where everyone is sharing a room with someone else (double occupancy): <br>
+  (294 * 12.5% + 3 * 2) * 15000 * 7 = 4,488,750
 
-It is assumed that Amsterdam will receive between €2,790,900 and €4,951,800 in tourist tax.
+It is assumed that Amsterdam will receive between €4,488,750 and €8,347,500 in tourist tax.
 
 ### 2.Plot the amount of AirBnB locations per neighbourhood.
 
