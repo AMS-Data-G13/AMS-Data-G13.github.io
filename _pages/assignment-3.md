@@ -12,6 +12,8 @@ According to City of Amsterdam, the details of the tourist tax are shown in Figu
 ![tourist tax](/images/tourist_tax.jpg) <br>
 <span style="color:grey"> (Figure 1, Tourist Tax, resource: [City of Amsterdam](https://www.amsterdam.nl/en/municipal-taxes/tourist-tax-(toeristenbelasting)/)) </span> 
 
+Average cost of overnight accommodation in Amsterdam in the Netherlands from January 2019 to June 2023(in euros)
+
 ![average price](/images/AverageCost.jpg) <br>
 <span style="color:grey"> (Figure 2, Average cost of overnight accommodation in Amsterdam, resource: [statista](https://www.statista.com/statistics/614061/overnight-accommodation-costs-amsterdam-city/)) </span>
 
@@ -67,7 +69,8 @@ for i,row in Loc.iterrows():
         writer.writerow(address)
         csvfile.close()
 ```
-Part of [csvfile: location](/files/location.csv)
+
+Here is part of [csvfile: location](/files/location.csv)
 
 |      | location                                                                                                                                          | coordinate                              |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
@@ -113,6 +116,8 @@ Part of [csvfile: location](/files/location.csv)
 | 8385 | Hotel Doria, Pijlsteeg, Burgwallen-Oude Zijde, Centrum, Amsterdam, Noord-Holland, Nederland, 1012 JL, Nederland                                   | (52.3724267, 4.894502)                  |
 | 8386 | Eemsstraat, Rijnbuurt, Zuid, Amsterdam, Noord-Holland, Nederland, 1079 BS, Nederland                                                              | (52.34204645, 4.909319813263932)        |
 
+We can see that not all addresses have the same format, but the second last position is the postcode, so we're going to extract the postcode information for each address.
+
 ```ruby
 import pandas as pd
 from collections import Counter
@@ -124,10 +129,11 @@ for i, row in Location.iterrows():
     street.append(Location_split[-2]) 
 
 count = Counter(street)
-# print(count)
 postcode = pd.DataFrame(count, index=[0])
 postcode.to_csv('postcode.csv', index=False)
 ```
+
+Here are the top five [postcodes](/files/postcode.csv) in terms of occurrences:
 
 | postcode | count |
 | -------- | ----- |
@@ -137,6 +143,7 @@ postcode.to_csv('postcode.csv', index=False)
 |  1011 TE | 21    |
 |  1015 HJ | 20    |
 
+We can see that 1052 CH appears 175 times far more than any other postcode. Next we will look at which addresses are at 1052 CH.
 
 ### 4.Try to cross reference the data from the AirBnB dataset with the BBGA. Can you figure out if all apartments of AirBnB are designated as housing? Which number of apartments are not rented out all the time but are also used as normal housing?
 
