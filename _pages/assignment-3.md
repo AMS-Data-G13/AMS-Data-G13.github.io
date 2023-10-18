@@ -7,6 +7,17 @@ author_profile: true
 
 ### 1.What Amsterdam will receive from tourist tax if the event lasts a week and you will have 30.000 visitors?
 
+According to City of Amsterdam, the details of the tourist tax are shown in Figure 1. And according to Statista, we learnt the average cost of an overnight stay in Amsterdam. 
+
+As the event will take place in May, we refer to the average price of €294 per night in May 2023, and we assume that all 30,000 visitors will stay at the hotel. Then there will be two limiting scenarios.
+* In the first case, each person is in a separate room:
+  (294 * 7% + 3) * 30000 * 7 = 4,951,800
+* The second scenario is where everyone is sharing a room with someone else (double occupancy):
+  (294 * 7% + 3 * 2) * 15000 * 7 = 2,790,900
+
+
+
+
 ### 2.Plot the amount of AirBnB locations per neighbourhood.
 
 ```ruby
