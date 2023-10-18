@@ -9,9 +9,9 @@ author_profile: true
 
 According to City of Amsterdam, the details of the tourist tax are shown in Figure 1. And according to Statista, we learnt the average cost of an overnight stay in Amsterdam (Figure 2). 
 
-![tourist tax](/images/touristtax.jpg) </br>
+![tourist tax](/images/tourist_tax.jpg) </br>
 <p style="text-align: center;"> <span style="color:grey"> (tourist tax, resource: </span> </p> [City of Amsterdam](https://www.amsterdam.nl/en/municipal-taxes/tourist-tax-(toeristenbelasting)/))
-![average price](/images/Average cost of overnight accommodation in Amsterdam in the Netherlands from January 2019 to June 2023.jpg) </br>
+![average price](/images/AverageCost.jpg) </br>
 <p style="text-align: center;"> <span style="color:grey"> (Average cost of overnight accommodation in Amsterdam, resource: </span> </p> [statista](https://www.statista.com/statistics/614061/overnight-accommodation-costs-amsterdam-city/))
 
 As the event will take place in May, we refer to the average price of €294 per night in May 2023, and we assume that all 30,000 visitors will stay at the hotel. Then there will be two limiting scenarios.
