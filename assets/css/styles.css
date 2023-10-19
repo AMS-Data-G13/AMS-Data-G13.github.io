@@ -33,3 +33,6 @@ table td {
   height: 300px; /* 设置容器高度 */
   overflow: auto; /* 滚动条自动出现 */
 }
+.table-wrapper {
+  overflow-y: scroll;
+}
