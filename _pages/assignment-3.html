@@ -87,12 +87,37 @@ author_profile: true
   Here is part of <a href="/files/location.csv">csvfile: location</a>:
 </p>
 
-<div>
-.dataTables_scroll
-{
-  overflow:auto;
-}
-<table class="dataTable">
+<head>
+  <title>Location</title>
+  <style>
+    .fixed_header {
+        width: auto;
+        table-layout: fixed;
+        border-collapse: collapse;
+      }
+      .fixed_header tbody {
+        display: block;
+        width: 100%;
+        overflow: auto;
+        height: 300px;
+      }
+      .fixed_header thead tr {
+        display: block;
+      }
+      .fixed_header thead {
+        background: #e4e4e4e4;
+        color: black;
+      }
+      .fixed_header th,
+      .fixed_header td {
+        padding: 5px;
+        text-align: right;
+        width: auto;
+      }
+  </style>
+</head>
+<body>
+  <table class="fixed_header">
 <thead><tr><th title="Field #1">num</th>
 <th title="Field #2">location</th>
 <th title="Field #3">coordinate</th>
@@ -304,7 +329,7 @@ author_profile: true
 </tr>
 </tbody></table>
 jQuery('.dataTable').wrap('<div class="dataTables_scroll" />');
-</div>
+</head>
 
 <p>
   We can see that not all addresses have the same format, but the second last position is the postcode, so we’re going to extract the postcode information for each address.
