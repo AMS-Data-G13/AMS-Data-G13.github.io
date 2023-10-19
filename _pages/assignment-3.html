@@ -11,5 +11,38 @@ author_profile: true
 </p>
 <p>
   <img src="/images/tourist_tax.jpg" alt="tourist tax">
-  <span style="color:grey"> (Figure 1, Tourist Tax, resource: <a href="https://www.amsterdam.nl/en/municipal-taxes/tourist-tax-(toeristenbelasting)/">City of Amsterdam</a>) </span>
+  <span style="color:grey"> <p style="text-align:center;">(Figure 1, Tourist Tax, resource: <a href="https://www.amsterdam.nl/en/municipal-taxes/tourist-tax-(toeristenbelasting)/">City of Amsterdam</a>) </p></span>
 </p>
+<p>
+  Average cost of overnight accommodation in Amsterdam in the Netherlands from January 2019 to June 2023(in euros)
+</p>
+<p>
+  <img src="/images/AverageCost.jpg" alt="average price">
+  <span style="color:grey"> (Figure 2, Average cost of overnight accommodation in Amsterdam, resource: <a href="https://www.statista.com/statistics/614061/overnight-accommodation-costs-amsterdam-city/">statista</a>) </span>
+</p>
+<p>
+  As the event will take place in May, we refer to the average price of €294 per night in May 2023, and we assume that all 30,000 visitors will stay at the hotel. Then there will be two limiting scenarios.
+</p>
+
+<ul>
+  <li>In the first case, each person is in a separate room: <br> (294 * 12.5% + 3) * 30000 * 7 = 8,347,500
+  </li>
+  <li>The second scenario is where everyone is sharing a room with someone else (double occupancy): <br> (294 * 12.5% + 3 * 2) * 15000 * 7 = 4,488,750
+  </li>
+</ul>
+<p>
+  It is assumed that Amsterdam will receive between €4,488,750 and €8,347,500 in tourist tax.
+</p>
+
+<h3 id="2plot-the-amount-of-airbnb-locations-per-neighbourhood">2.Plot the amount of AirBnB locations per neighbourhood.</h3>
+<div class="language-ruby highlighter-rouge">
+  <div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="n">pandas</span> <span class="n">as</span> <span class="n">pd</span>
+<span class="n">import</span> <span class="n">plotly</span><span class="p">.</span><span class="nf">express</span> <span class="n">as</span> <span class="n">px</span>
+
+<span class="n">airbnb</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s1">'listings.csv'</span><span class="p">)</span> 
+<span class="n">neighbourhood</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">.</span><span class="nf">neighbourhood</span><span class="p">.</span><span class="nf">value_counts</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="p">.</span><span class="nf">bar</span><span class="p">(</span><span class="n">neighbourhood</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'count'</span><span class="p">,</span> <span class="n">text_auto</span><span class="o">=</span><span class="no">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+</code></pre>
+  </div>
+</div>
