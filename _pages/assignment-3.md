@@ -72,6 +72,8 @@ for i,row in Loc.iterrows():
 
 Here is part of [csvfile: location](/files/location.csv):
 
+<div class="table-wrapper" markdown="block">
+  
 |      | location                                                                                                                                          | coordinate                              |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
 | 1    | Gemaal Jisperveldstraat, Jisperveldstraat, Noord, Zunderdorp, Amsterdam, Noord-Holland, Nederland, 1024 BC, Nederland                             | (52.401009, 4.9515278047393405)         |
@@ -115,6 +117,8 @@ Here is part of [csvfile: location](/files/location.csv):
 | 8384 | Natuur is leuk, Brettenpad, Sloterdijk, West, Amsterdam, Noord-Holland, Nederland, 1014 BG, Nederland                                             | (52.3864113, 4.848104)                  |
 | 8385 | Hotel Doria, Pijlsteeg, Burgwallen-Oude Zijde, Centrum, Amsterdam, Noord-Holland, Nederland, 1012 JL, Nederland                                   | (52.3724267, 4.894502)                  |
 | 8386 | Eemsstraat, Rijnbuurt, Zuid, Amsterdam, Noord-Holland, Nederland, 1079 BS, Nederland                                                              | (52.34204645, 4.909319813263932)        |
+
+</div>
 
 We can see that not all addresses have the same format, but the second last position is the postcode, so we're going to extract the postcode information for each address.
 
