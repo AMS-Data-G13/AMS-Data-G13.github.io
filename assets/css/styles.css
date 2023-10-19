@@ -34,5 +34,7 @@ table td {
   overflow: auto; /* 滚动条自动出现 */
 }
 .table-wrapper {
+  height: 300px; /* 设置容器高度 */
+  overflow: auto;
   overflow-y: scroll;
 }
