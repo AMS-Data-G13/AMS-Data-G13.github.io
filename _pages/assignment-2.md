@@ -16,7 +16,6 @@ Out of the total of 7350 boats, **4854 are fossil fuel** driven, **2276 are elec
 <div align="center">
     <img src="/images/AnualRythm.JPG" alt="Annual">
 </div>
-![Tybe](/images/Type.JPG)
 <span style="color:grey"> (Figure 1, Type BHG Vignettes. Source: </span>[Gemeente Amsterdam Grachtenmonitor 2022](https://openresearch.amsterdam/nl/page/92981/grachtenmonitor-2022))
 
 ### - Are there peak times for the canal boats?
