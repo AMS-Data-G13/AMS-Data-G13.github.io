@@ -89,4 +89,74 @@ if __name__ == '__main__':
     print(num_rented)
 
 
+## Some additional thoughts on the questions
+
+import pandas as pd
+import plotly.express as px
+from geopy.geocoders import Nominatim
+import csv
+from collections import Counter
+
+    #Question 2
+    airbnb = pd.read_csv('listings.csv') 
+    neighbourhood = airbnb.neighbourhood.value_counts()
+    fig = px.bar(neighbourhood, y='count', text_auto=True, title="the amount of AirBnB locations per neighbourhood")
+    fig.show()
+
+    #Question 3
+    geolocator = Nominatim(user_agent="user")
+    Loc = airbnb[['latitude','longitude']] 
+
+    file = 'location.csv'
+    header = ['location', 'coordinate']
+    with open(file,'w',encoding='utf-8',newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(header)
+
+    #Get a specific address based on latitude and longitude
+    for i,row in Loc.iterrows(): 
+        a = str(row['latitude']) 
+        b = str(row['longitude']) 
+        address = geolocator.reverse(a+","+b, timeout=None) 
+        print(address)
+        
+        with open(file,'a+',encoding='utf-8',newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(address)
+            csvfile.close()
+
+     #Get the postcode from the address
+     Location = pd.read_csv('location.csv') 
+     street = []
+     for i, row in Location.iterrows():
+         Location_split = row[1].split(',')
+         street.append(Location_split[-2]) 
+
+     #Counting which postcodes appear most often
+     count = Counter(street)
+     print(count)
+     postcode = pd.DataFrame(count, index=[0])
+     print(postcode)
+     postcode.to_csv('postcode.csv', index=False)
+
+     #Filter out addresses containing the most frequently occurring postcodes
+     df = pd.DataFrame(street)
+     post = []
+     code = []
+     for i, row in df.iterrows():
+         df_split = row[0].split(' ')
+         post.append(df_split[1]) 
+         code.append(df_split[-1])
+
+     df1 = pd.DataFrame(post)
+     df2 = pd.DataFrame(code)
+
+     New_loc = pd.concat([Location,df1,df2],axis=1)
+     New_loc.columns = ['num','location','coordinate','post','code']
+     CH_1 = New_loc[New_loc['post'] == '1052']
+     CH_2 = CH_1[CH_1['code'] == 'CH']
+
+     StreetName = pd.DataFrame(CH_2)
+     StreetName.to_csv('StreetName.csv',sep=',',index=True,header=True) 
+
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
