@@ -89,29 +89,25 @@ author_profile: true
 <head>
   <title>Location</title>
   <style>
-    .fixed_header {
-      width: 1200px;
-      table-layout: fixed;
-      border-collapse: collapse;
+    .tableFixHead {
+      overflow-y: auto; /* make the table scrollable if height is more than 200 px  */
+      height: 200px; /* gives an initial height of 200px to the table */
     }
-    .fixed_header tbody {
-      display: block;
+    .tableFixHead thead th {
+      position: sticky; /* make the table heads sticky */
+      top: 0px; /* table head will be placed from the top of the table and sticks to it */
+    }
+    table {
+      border-collapse: collapse; /* make the table borders collapse to each other */
       width: 100%;
-      overflow: auto;
-      height: 300px;
-     }
-    .fixed_header thead tr {
-       display: block;
-     }
-     .fixed_header thead {
-       background: black;
-       color: #fff;
-     }
-     .fixed_header th,
-    .fixed_header td {
-       padding: 5px;
-       text-align: right;
-       width: 900px;
+    }
+    th,
+    td {
+      padding: 8px 16px;
+      border: 1px solid #ccc;
+    }
+    th {
+      background: #eee;
     }
   </style>
 </head>
