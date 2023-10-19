@@ -90,7 +90,7 @@ author_profile: true
   <title>Location</title>
   <style>
     .fixed_header {
-      width: 960px;
+      width: 940px;
       table-layout: fixed;
       border-collapse: collapse;
     }
@@ -111,7 +111,7 @@ author_profile: true
     .fixed_header td {
       padding: 5px;
       text-align: right;
-      width: 320px;
+      width: 310px;
     }
   </style>
 </head>
@@ -328,5 +328,82 @@ author_profile: true
 </tr>
 </tbody></table>
 </body>
+
+<p>
+  We can see that not all addresses have the same format, but the second last position is the postcode, so we’re going to extract the postcode information for each address.
+</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="n">pandas</span> <span class="n">as</span> <span class="n">pd</span>
+<span class="n">from</span> <span class="n">collections</span> <span class="n">import</span> <span class="no">Counter</span>
+
+<span class="no">Location</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s1">'location.csv'</span><span class="p">)</span> 
+<span class="n">street</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="k">in</span> <span class="no">Location</span><span class="p">.</span><span class="nf">iterrows</span><span class="p">():</span>
+    <span class="no">Location_split</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>
+    <span class="n">street</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="no">Location_split</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> 
+
+<span class="n">count</span> <span class="o">=</span> <span class="no">Counter</span><span class="p">(</span><span class="n">street</span><span class="p">)</span>
+<span class="n">postcode</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="no">DataFrame</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">postcode</span><span class="p">.</span><span class="nf">to_csv</span><span class="p">(</span><span class="s1">'postcode.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="no">False</span><span class="p">)</span>
+</code></pre></div></div>
+<p>
+  Here are the top five <a href="/files/postcode.csv">postcodes</a> in terms of occurrences:
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>postcode
+      </th>
+      <th>count
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&nbsp;1052 CH
+      </td>
+      <td>175
+      </td>
+    </tr>
+    <tr><td>&nbsp;1012 AR
+    </td>
+      <td>47
+      </td>
+    </tr>
+    <tr><td>&nbsp;1015 RR
+    </td>
+      <td>24
+      </td>
+    </tr>
+    <tr><td>&nbsp;1011 TE
+    </td>
+      <td>21
+      </td>
+    </tr>
+    <tr>
+      <td>&nbsp;1015 HJ
+      </td>
+      <td>20
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
