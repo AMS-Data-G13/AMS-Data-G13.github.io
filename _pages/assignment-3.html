@@ -107,7 +107,7 @@ author_profile: true
       border: 2px solid #e4e4e4; 
     } 
     th { 
-      background: #808080; 
+      background: #e4e4e4; 
     } 
   </style>
 </head>
@@ -384,9 +384,1445 @@ author_profile: true
   </tbody>
 </table>
 
+<p>
+  We can see that 1052 CH appears 175 times far more than any other postcode. Next we will look at which addresses are at 1052 CH.
+</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="no">DataFrame</span><span class="p">(</span><span class="n">street</span><span class="p">)</span>
+<span class="c1">#To eliminate spaces in the postcode</span>
+<span class="n">post</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">code</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="k">in</span> <span class="n">df</span><span class="p">.</span><span class="nf">iterrows</span><span class="p">():</span>
+    <span class="n">df_split</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span>
+    <span class="n">post</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">df_split</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
+    <span class="n">code</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">df_split</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="no">DataFrame</span><span class="p">(</span><span class="n">post</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="no">DataFrame</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
 
+<span class="no">New_loc</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">concat</span><span class="p">([</span><span class="no">Location</span><span class="p">,</span><span class="n">df1</span><span class="p">,</span><span class="n">df2</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="no">New_loc</span><span class="p">.</span><span class="nf">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'num'</span><span class="p">,</span><span class="s1">'location'</span><span class="p">,</span><span class="s1">'coordinate'</span><span class="p">,</span><span class="s1">'post'</span><span class="p">,</span><span class="s1">'code'</span><span class="p">]</span>
+<span class="no">CH_1</span> <span class="o">=</span> <span class="no">New_loc</span><span class="p">[</span><span class="no">New_loc</span><span class="p">[</span><span class="s1">'post'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'1052'</span><span class="p">]</span>
+<span class="no">CH_2</span> <span class="o">=</span> <span class="no">CH_1</span><span class="p">[</span><span class="no">CH_1</span><span class="p">[</span><span class="s1">'code'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'CH'</span><span class="p">]</span>
 
+<span class="no">StreetName</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="no">DataFrame</span><span class="p">(</span><span class="no">CH_2</span><span class="p">)</span>
+<span class="no">StreetName</span><span class="p">.</span><span class="nf">to_csv</span><span class="p">(</span><span class="s1">'StreetName.csv'</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="no">True</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="no">True</span><span class="p">)</span> 
+</code></pre></div></div>
+<p>
+  These are the AirBnb’s at <a href="/files/StreetName.csv">1052CH</a>:
+</p>
+<body>
+  <table class="fixTableHead">
+<thead><tr><th title="Field #1">count</th>
+<th title="Field #2">num</th>
+<th title="Field #3">location</th>
+<th title="Field #4">coordinate</th>
+<th title="Field #5">post</th>
+<th title="Field #6">code</th>
+</tr></thead>
+<tbody><tr>
+<td align="right">1</td>
+<td align="right">5</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">18</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">24</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">41</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td align="right">46</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td align="right">151</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td align="right">320</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td align="right">379</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td align="right">386</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td align="right">388</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td align="right">443</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td align="right">480</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td align="right">495</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td align="right">540</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td align="right">661</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td align="right">673</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">17</td>
+<td align="right">739</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">18</td>
+<td align="right">785</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">19</td>
+<td align="right">788</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">20</td>
+<td align="right">815</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">21</td>
+<td align="right">823</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">22</td>
+<td align="right">833</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">23</td>
+<td align="right">853</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">24</td>
+<td align="right">882</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">25</td>
+<td align="right">975</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">26</td>
+<td align="right">1006</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">27</td>
+<td align="right">1011</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">28</td>
+<td align="right">1079</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">29</td>
+<td align="right">1131</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">30</td>
+<td align="right">1253</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">31</td>
+<td align="right">1256</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">32</td>
+<td align="right">1310</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">33</td>
+<td align="right">1329</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">34</td>
+<td align="right">1367</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">35</td>
+<td align="right">1503</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">36</td>
+<td align="right">1524</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">37</td>
+<td align="right">1555</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">38</td>
+<td align="right">1585</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">39</td>
+<td align="right">1587</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">40</td>
+<td align="right">1635</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">41</td>
+<td align="right">1642</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">42</td>
+<td align="right">1676</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">43</td>
+<td align="right">1755</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">44</td>
+<td align="right">1787</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">45</td>
+<td align="right">1828</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">46</td>
+<td align="right">1878</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">47</td>
+<td align="right">1976</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">48</td>
+<td align="right">1994</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">49</td>
+<td align="right">2016</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">50</td>
+<td align="right">2049</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">51</td>
+<td align="right">2064</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">52</td>
+<td align="right">2086</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">53</td>
+<td align="right">2155</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">54</td>
+<td align="right">2165</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">55</td>
+<td align="right">2182</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">56</td>
+<td align="right">2202</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">57</td>
+<td align="right">2243</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">58</td>
+<td align="right">2247</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">59</td>
+<td align="right">2299</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">60</td>
+<td align="right">2311</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">61</td>
+<td align="right">2344</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">62</td>
+<td align="right">2345</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">63</td>
+<td align="right">2419</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">64</td>
+<td align="right">2424</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">65</td>
+<td align="right">2523</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">66</td>
+<td align="right">2530</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">67</td>
+<td align="right">2542</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">68</td>
+<td align="right">2581</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">69</td>
+<td align="right">2593</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">70</td>
+<td align="right">2616</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">71</td>
+<td align="right">2646</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">72</td>
+<td align="right">2675</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">73</td>
+<td align="right">2708</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">74</td>
+<td align="right">2709</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">75</td>
+<td align="right">2742</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">76</td>
+<td align="right">2898</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">77</td>
+<td align="right">2952</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">78</td>
+<td align="right">2958</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">79</td>
+<td align="right">2967</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">80</td>
+<td align="right">3040</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">81</td>
+<td align="right">3079</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">82</td>
+<td align="right">3256</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">83</td>
+<td align="right">3263</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">84</td>
+<td align="right">3269</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">85</td>
+<td align="right">3320</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">86</td>
+<td align="right">3338</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">87</td>
+<td align="right">3535</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">88</td>
+<td align="right">3549</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">89</td>
+<td align="right">3554</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">90</td>
+<td align="right">3586</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">91</td>
+<td align="right">3669</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">92</td>
+<td align="right">3706</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">93</td>
+<td align="right">3712</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">94</td>
+<td align="right">3723</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">95</td>
+<td align="right">3736</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">96</td>
+<td align="right">3767</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">97</td>
+<td align="right">3777</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">98</td>
+<td align="right">3811</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">99</td>
+<td align="right">3937</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">100</td>
+<td align="right">3951</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">101</td>
+<td align="right">3952</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">102</td>
+<td align="right">3954</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">103</td>
+<td align="right">4000</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">104</td>
+<td align="right">4018</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">105</td>
+<td align="right">4041</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">106</td>
+<td align="right">4082</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">107</td>
+<td align="right">4179</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">108</td>
+<td align="right">4202</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">109</td>
+<td align="right">4226</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">110</td>
+<td align="right">4248</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">111</td>
+<td align="right">4266</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">112</td>
+<td align="right">4361</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">113</td>
+<td align="right">4381</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">114</td>
+<td align="right">4387</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">115</td>
+<td align="right">4403</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">116</td>
+<td align="right">4404</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">117</td>
+<td align="right">4410</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">118</td>
+<td align="right">4455</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">119</td>
+<td align="right">4480</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">120</td>
+<td align="right">4499</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">121</td>
+<td align="right">4555</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">122</td>
+<td align="right">4557</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">123</td>
+<td align="right">4579</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">124</td>
+<td align="right">4581</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">125</td>
+<td align="right">4602</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">126</td>
+<td align="right">4688</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">127</td>
+<td align="right">4722</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">128</td>
+<td align="right">4727</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">129</td>
+<td align="right">4754</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">130</td>
+<td align="right">4867</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">131</td>
+<td align="right">4972</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">132</td>
+<td align="right">6057</td>
+<td>Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.383978040393785, 4.881098559021044)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">133</td>
+<td align="right">6059</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">134</td>
+<td align="right">6075</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">135</td>
+<td align="right">6148</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">136</td>
+<td align="right">6216</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">137</td>
+<td align="right">6218</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">138</td>
+<td align="right">6228</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">139</td>
+<td align="right">6229</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">140</td>
+<td align="right">6266</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">141</td>
+<td align="right">6379</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">142</td>
+<td align="right">6416</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">143</td>
+<td align="right">6511</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">144</td>
+<td align="right">6521</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">145</td>
+<td align="right">6560</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">146</td>
+<td align="right">6693</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">147</td>
+<td align="right">6695</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">148</td>
+<td align="right">6731</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">149</td>
+<td align="right">6764</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">150</td>
+<td align="right">6767</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">151</td>
+<td align="right">6811</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">152</td>
+<td align="right">6830</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">153</td>
+<td align="right">6918</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">154</td>
+<td align="right">7040</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">155</td>
+<td align="right">7084</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">156</td>
+<td align="right">7170</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">157</td>
+<td align="right">7195</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">158</td>
+<td align="right">7235</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">159</td>
+<td align="right">7340</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">160</td>
+<td align="right">7424</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">161</td>
+<td align="right">7425</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">162</td>
+<td align="right">7488</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">163</td>
+<td align="right">7564</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">164</td>
+<td align="right">7581</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">165</td>
+<td align="right">7602</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">166</td>
+<td align="right">7647</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">167</td>
+<td align="right">7648</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">168</td>
+<td align="right">7657</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">169</td>
+<td align="right">7678</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">170</td>
+<td align="right">7680</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">171</td>
+<td align="right">7761</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">172</td>
+<td align="right">7806</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">173</td>
+<td align="right">7828</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">174</td>
+<td align="right">7999</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+<tr>
+<td align="right">175</td>
+<td align="right">8091</td>
+<td>19-H, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.3834201, 4.8805025)</td>
+<td align="right">1052</td>
+<td>CH</td>
+</tr>
+</tbody></table>
+</body>
+
+    
 
 
 
