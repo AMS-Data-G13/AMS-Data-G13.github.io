@@ -167,7 +167,7 @@ StreetName = pd.DataFrame(CH_2)
 StreetName.to_csv('StreetName.csv',sep=',',index=True,header=True) 
 ```
 
-These are the AirBnb's at [1052CH](files/StreetName.csv):
+These are the AirBnb's at [1052CH](/files/StreetName.csv):
 
 |     | num  | location                                                                                                                   | coordinate                              | post | code |
 | --- | ---- | -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---- | ---- |
