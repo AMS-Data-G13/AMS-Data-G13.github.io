@@ -28,6 +28,7 @@ table td {
   border: 1px solid #dedede; /*内部边框样式*/
   padding: 0 10px; /*内边距*/
 }
-.table-area {
-    overflow: auto;
+.table-container {
+  height: 300px; /* 设置容器高度 */
+  overflow: auto; /* 滚动条自动出现 */
 }
