@@ -13,6 +13,9 @@ The newest data from the Grachten Monitor (2022) from the municipality of Amster
 
 Out of the total of 7350 boats, **4854 are fossil fuel** driven, **2276 are electric or environmental** and **220 boats are hybrid** meaning that have both electric and combustion motors. According to the Grachten Monitor 2022, 34.0% of the current fleet is either electric or hybrid powered.  
 
+<div align="center">
+    <img src="/images/AnualRythm.JPG" alt="Annual">
+</div>
 ![Tybe](/images/Type.JPG)
 <span style="color:grey"> (Figure 1, Type BHG Vignettes. Source: </span>[Gemeente Amsterdam Grachtenmonitor 2022](https://openresearch.amsterdam/nl/page/92981/grachtenmonitor-2022))
 
