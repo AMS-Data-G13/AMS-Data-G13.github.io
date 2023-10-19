@@ -20,22 +20,22 @@ Out of the total of 7350 boats, **4854 are fossil fuel** driven, **2276 are elec
 
 According to the Gractenmonitor **the peak weeks of the year are 15th and 16th**, with a gnereal high season on summer between weeks 15th and 38th of the year. The peak day is **Saturday follow by Sunday and Friday**. And the peak hours are between **13:00 and 15:00** in the afternoon. 
 
-![Annual](/images/AnnualRythm.JPG)
+![Annual](/images/AnualRythm.JPG)
 <span style="color:grey"> (Figure 2,  Annual rhythm of manned passenger navigation. Average number of active daily boat hours of manned passenger vessels per week in the 2021/2022 sailing season (bars) and for reference in the years 2019, 2020 and 2021. Source: </span>[Gemeente Amsterdam Grachtenmonitor 2022](https://openresearch.amsterdam/nl/page/92981/grachtenmonitor-2022))
 
 The average weekly pattern shows a gradual increase from Monday to the weekend, with a peak on Saturdays (figure 2). Compared to the previous sailing season, in addition to an increase in activity, there is also a greater spread over the week. 
 
-![Weekly](/images/WeeklyRythm.JPG)
+![Weekly](/images/WeeklyRythm.JPG) <br>
 <span style="color:grey"> (Figure 3, Weekly rhythm of manned passenger shipping. Average number of active 'boat hours' per day of the week. Source: </span>[Gemeente Amsterdam Grachtenmonitor 2022](https://openresearch.amsterdam/nl/page/92981/grachtenmonitor-2022))
 
 In the same period, July to August 2022, the daily rhythm of manned passenger shipping shows that activities start from 8:00 AM and increase to a peak period between 2:00 PM and 6:00 PM (Figure 4). Then the activity decreases again. Virtually no activity takes place between 24:00 and 08:00. Compared to recent years, there is more sailing, especially in the evening. 
 
-![Daily](/images/DailyRythm.JPG)
+![Daily](/images/DailyRhythm.JPG)
 <span style="color:grey"> (Figure 4, Daily rhythm of manned passenger shipping. Average number of active passenger vessels per hour of the day. Source: </span>[Gemeente Amsterdam Grachtenmonitor 2022]
 
 On August 12 to 14, 2022 it was dry and the maximum temperature averaged 31 degrees Celsius. Almost 50,000 passages were observed at all locations together (figure 5). The highest number of passages per hour was measured between 3:00 PM and 5:00 PM. On Saturday it was busier than on Friday and Sunday (20-25% more passages). 
 
-![Average](/images/Average.JPG)
+![Average](/images/Avarage.JPG)
 <span style="color:grey"> (Figure 5, Average number of passages per hour in the period 12 to 14 August 2022 between 9:00 AM and 11:00 PM at 11 measuring points in the city. Source: </span>[Gemeente Amsterdam Grachtenmonitor 2022]
 
 ### - Try to compare the energy use of the canal boats to some other activities in the city. Use canal boats more or less energy in relation to their carbon footprint compared to these other activities?
