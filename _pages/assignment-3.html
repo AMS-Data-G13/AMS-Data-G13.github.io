@@ -86,32 +86,61 @@ author_profile: true
 <p>
   Here is part of <a href="/files/location.csv">csvfile: location</a>:
 </p>
-<div id="table-container">
+<head>
+  <title>Location</title>
+  <style>
+    .fixed_header {
+ 
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
+    .fixed_header tbody {
+      display: block;
+      width: 100%;
+      overflow: auto;
+      height: 300px;
+     }
+    .fixed_header thead tr {
+       display: block;
+     }
+     .fixed_header thead {
+       background: black;
+       color: #fff;
+     }
+     .fixed_header th,
+    .fixed_header td {
+       padding: 5px;
+       text-align: left;
+       width: 200px;
+    }
+  </style>
+</head>
+<body>
   <table class="table table-bordered table-hover table-condensed">
-    <thead><tr><th title="Field #1">num</th>
-      <th title="Field #2">location</th>
-      <th title="Field #3">coordinate</th>
-    </tr></thead>
-    <tbody><tr>
-      <td>1</td>
-      <td>Gemaal Jisperveldstraat, Jisperveldstraat, Noord, Zunderdorp, Amsterdam, Noord-Holland, Nederland, 1024 BC, Nederland</td>
-      <td>(52.401009, 4.9515278047393405)</td>
-    </tr>
-      <tr>
-        <td>2</td>
-        <td>82, Zoutkeetsplein, Zeeheldenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1013 MR, Nederland</td>
-        <td>(52.3886465, 4.8849671)</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>125, Centrale Groothandelsmarkt, Food Center Amsterdam, West, Amsterdam, Noord-Holland, Nederland, 1051 LJ, Nederland</td>
-        <td>(52.3784157, 4.868362)</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>66E, IJsbaanpad, Zuid, Amsterdam, Noord-Holland, Nederland, 1076 CW, Nederland</td>
-        <td>(52.34091435, 4.8480442456550445)</td>
-      </tr>
+<thead><tr><th title="Field #1">num</th>
+<th title="Field #2">location</th>
+<th title="Field #3">coordinate</th>
+</tr></thead>
+<tbody><tr>
+<td>1</td>
+<td>Gemaal Jisperveldstraat, Jisperveldstraat, Noord, Zunderdorp, Amsterdam, Noord-Holland, Nederland, 1024 BC, Nederland</td>
+<td>(52.401009, 4.9515278047393405)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>82, Zoutkeetsplein, Zeeheldenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1013 MR, Nederland</td>
+<td>(52.3886465, 4.8849671)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>125, Centrale Groothandelsmarkt, Food Center Amsterdam, West, Amsterdam, Noord-Holland, Nederland, 1051 LJ, Nederland</td>
+<td>(52.3784157, 4.868362)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>66E, IJsbaanpad, Zuid, Amsterdam, Noord-Holland, Nederland, 1076 CW, Nederland</td>
+<td>(52.34091435, 4.8480442456550445)</td>
+</tr>
 <tr>
 <td>5</td>
 <td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
@@ -298,8 +327,6 @@ author_profile: true
 <td>(52.34204645, 4.909319813263932)</td>
 </tr>
 </tbody></table>
-</div>
-
-
+</body>
 
 
