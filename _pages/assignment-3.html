@@ -89,34 +89,30 @@ author_profile: true
 <head>
   <title>Location</title>
   <style>
-    .fixed_header {
-      width: 940px;
-      table-layout: fixed;
-      border-collapse: collapse;
-    }
-    .fixed_header tbody {
-      display: block;
-      width: 100%;
-      overflow: auto;
-      height: 300px;
-    }
-    .fixed_header thead tr {
-      display: block;
-    }
-    .fixed_header thead {
-      background: black;
-      color: #fff;
-    }
-    .fixed_header th,
-    .fixed_header td {
-      padding: 5px;
-      text-align: right;
-      width: 310px;
-    }
+    .fixTableHead { 
+      overflow-y: auto; 
+      height: 300px; 
+    } 
+    .fixTableHead thead th { 
+      position: sticky; 
+      top: 0; 
+    } 
+    table { 
+      border-collapse: collapse;         
+      width: 100%; 
+    } 
+    th, 
+    td { 
+      padding: 8px 15px; 
+      border: 2px solid #e4e4e4; 
+    } 
+    th { 
+      background: #808080; 
+    } 
   </style>
 </head>
 <body>
-  <table class="fixed_header">
+  <table class="fixTableHead">
 <thead><tr><th title="Field #1">num</th>
 <th title="Field #2">location</th>
 <th title="Field #3">coordinate</th>
