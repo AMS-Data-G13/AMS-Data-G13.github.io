@@ -93,6 +93,10 @@ author_profile: true
       overflow-y: auto; 
       height: 300px; 
     } 
+    .fixTableHead tbody { 
+      overflow: auto; 
+      height: 300px; 
+    } 
     .fixTableHead thead th { 
       position: sticky; 
       top: 0; 
@@ -1822,13 +1826,52 @@ author_profile: true
 </tbody></table>
 </body>
 
-    
+<p>
+  Obviously the street called Nassaukade has the most Airbnb’s.
+</p>
 
+<h3 id="4try-to-cross-reference-the-data-from-the-airbnb-dataset-with-the-bbga-can-you-figure-out-if-all-apartments-of-airbnb-are-designated-as-housing-which-number-of-apartments-are-not-rented-out-all-the-time-but-are-also-used-as-normal-housing">4.Try to cross reference the data from the AirBnB dataset with the BBGA. Can you figure out if all apartments of AirBnB are designated as housing? Which number of apartments are not rented out all the time but are also used as normal housing?</h3>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">count</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span> 
+    <span class="nb">name</span> <span class="o">=</span> <span class="n">house_type</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
+    <span class="n">a</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">.</span><span class="nf">query</span><span class="p">(</span><span class="s1">'room_type == @name'</span><span class="p">)</span> 
+    <span class="n">count</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> 
+<span class="n">room_type_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="no">DataFrame</span><span class="p">([</span><span class="n">count</span><span class="p">],</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">house_type</span><span class="p">)</span> 
+<span class="c1">#Question 4-2 </span>
+<span class="n">num_rented</span> <span class="o">=</span> <span class="n">len</span><span class="p">(</span><span class="n">airbnb</span><span class="p">.</span><span class="nf">query</span><span class="p">(</span><span class="s1">'availability_365 &lt; 365'</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">num_rented</span><span class="p">)</span>
+</code></pre></div></div>
 
+<p>
+  For this question, we were unsure about how to utilize the BBGA dataset, so all the responses are based on Airbnb data. Among the four room types, hotel rooms are not categorized as housing. Therefore, as an answer to the first question, 54 rooms were not designated as housing. Regarding the second question, we conducted a count of all properties with fewer than 365 available days, which totaled 8,350. Consequently, the remaining 37 properties have not been rented at all and are utilized as residential housing.
+</p>
 
+<h3 id="5how-many-hotel-rooms-should-be-built-if-amsterdam-wants-to-accommodate-the-same-number-of-tourists">5.How many hotel rooms should be built if Amsterdam wants to accommodate the same number of tourists?</h3>
 
-
-
+<h3 id="6how-many-different-licenses-are-issued">6.How many different licenses are issued?</h3>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="p">.</span><span class="nf">close</span><span class="p">(</span><span class="s2">"all"</span><span class="p">)</span> 
+<span class="n">num</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="nb">name</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="n">airbnb_list</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">.</span><span class="nf">transpose</span><span class="p">()</span> 
+<span class="n">airbnb1</span> <span class="o">=</span> <span class="n">airbnb_list</span><span class="p">.</span><span class="nf">values</span><span class="p">.</span><span class="nf">tolist</span><span class="p">()</span> 
+<span class="k">def</span> <span class="nf">find_duplicates</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="n">list</span><span class="p">(</span><span class="n">set</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">lst</span> <span class="k">if</span> <span class="n">lst</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]))</span> 
+<span class="n">house_type</span> <span class="o">=</span> <span class="n">find_duplicates</span><span class="p">(</span><span class="n">airbnb1</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">house_type</span><span class="p">)</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="ss">house_type: 
+    </span><span class="c1">#print(str(i[0])) </span>
+    <span class="n">sublist</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">.</span><span class="nf">loc</span><span class="p">[</span><span class="n">airbnb</span><span class="p">[</span><span class="s1">'room_type'</span><span class="p">]</span> <span class="o">==</span> <span class="n">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> 
+    <span class="n">num</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">sublist</span><span class="p">.</span><span class="nf">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+    <span class="nb">name</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> 
+<span class="n">plt</span><span class="p">.</span><span class="nf">barh</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span> 
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p>
+  In the Airbnb dataset, the last column contains license data, but understanding the types of licenses requires knowledge of the patterns associated with these licenses. After investigation, we determined that the types of licenses correspond to different room types. Therefore, the statistics on license types can be simplified into statistics on room type categories. The final results are illustrated in Figure 4.
+</p>
+<p><img src="/images/Figure_7.png" alt="license types"></p>
+<p style="text-align: center;"> <span style="color:grey"> (Figure 4, the statistics on license types) </span></p>
 
 
 
