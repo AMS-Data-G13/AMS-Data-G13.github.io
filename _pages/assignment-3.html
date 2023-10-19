@@ -46,3 +46,261 @@ author_profile: true
 </code></pre>
   </div>
 </div>
+<p>
+  <img src="/images/newplot.png" alt="neighbourhood">
+</p>
+<p style="text-align: center;"> <span style="color:grey"> (Figure 3, the amount of AirBnB locations per neighbourhood) </span></p>
+<p>
+  After aggregating all the Airbnb listings in Amsterdam by neighborhood, the statistical results we obtained are presented in Figure 3. It is evident that the De Baarsjes-Oud-West area has the highest number of Airbnb listings, while Bijlmer-Oost has the fewest.
+</p>
+
+<h3 id="3which-street-in-amsterdam-has-the-most-airbnb-apartments">3.Which street in Amsterdam has the most AirBnB apartments?</h3>
+<div class="language-ruby highlighter-rouge">
+  <div class="highlight"><pre class="highlight">
+    <code><span class="n">import</span> <span class="n">pandas</span> <span class="n">as</span> <span class="n">pd</span>
+<span class="n">from</span> <span class="n">geopy</span><span class="p">.</span><span class="nf">geocoders</span> <span class="n">import</span> <span class="no">Nominatim</span>
+<span class="n">import</span> <span class="n">csv</span>
+
+<span class="n">airbnb</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s1">'listings.csv'</span><span class="p">)</span> 
+<span class="n">geolocator</span> <span class="o">=</span> <span class="no">Nominatim</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="s2">"user_name"</span><span class="p">)</span>
+<span class="no">Loc</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">[[</span><span class="s1">'latitude'</span><span class="p">,</span><span class="s1">'longitude'</span><span class="p">]]</span>
+
+<span class="n">file</span> <span class="o">=</span> <span class="s1">'location.csv'</span>
+<span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'location'</span><span class="p">,</span> <span class="s1">'coordinate'</span><span class="p">]</span>
+<span class="n">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="s1">'w'</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">,</span><span class="n">newline</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span> <span class="n">as</span> <span class="ss">csvfile:
+    </span><span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="nf">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>
+    <span class="n">writer</span><span class="p">.</span><span class="nf">writerow</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+        
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">row</span> <span class="k">in</span> <span class="no">Loc</span><span class="p">.</span><span class="nf">iterrows</span><span class="p">():</span> 
+    <span class="n">a</span> <span class="o">=</span> <span class="n">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'latitude'</span><span class="p">])</span> 
+    <span class="n">b</span> <span class="o">=</span> <span class="n">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'longitude'</span><span class="p">])</span> 
+    <span class="n">address</span> <span class="o">=</span> <span class="n">geolocator</span><span class="p">.</span><span class="nf">reverse</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="s2">","</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="no">None</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
+        
+    <span class="n">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="s1">'a+'</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">,</span><span class="n">newline</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span> <span class="n">as</span> <span class="ss">csvfile:
+        </span><span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="nf">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>
+        <span class="n">writer</span><span class="p">.</span><span class="nf">writerow</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
+        <span class="n">csvfile</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+</code></pre>
+  </div>
+</div>
+<p>
+  Here is part of <a href="/files/location.csv">csvfile: location</a>:
+</p>
+<div style="height: 300px; overflow: auto">
+  <table class="table table-bordered table-hover table-condensed">
+    <thead><tr><th title="Field #1">num</th>
+      <th title="Field #2">location</th>
+      <th title="Field #3">coordinate</th>
+    </tr></thead>
+    <tbody><tr>
+      <td>1</td>
+      <td>Gemaal Jisperveldstraat, Jisperveldstraat, Noord, Zunderdorp, Amsterdam, Noord-Holland, Nederland, 1024 BC, Nederland</td>
+      <td>(52.401009, 4.9515278047393405)</td>
+    </tr>
+      <tr>
+        <td>2</td>
+        <td>82, Zoutkeetsplein, Zeeheldenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1013 MR, Nederland</td>
+        <td>(52.3886465, 4.8849671)</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>125, Centrale Groothandelsmarkt, Food Center Amsterdam, West, Amsterdam, Noord-Holland, Nederland, 1051 LJ, Nederland</td>
+        <td>(52.3784157, 4.868362)</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>66E, IJsbaanpad, Zuid, Amsterdam, Noord-Holland, Nederland, 1076 CW, Nederland</td>
+        <td>(52.34091435, 4.8480442456550445)</td>
+      </tr>
+<tr>
+<td>5</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>276, Maassluisstraat, Westlandgracht, Nieuw-West, Amsterdam, Noord-Holland, Nederland, 1062 GM, Nederland</td>
+<td>(52.3496149, 4.8358018)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>14, Zanddwarsstraat, Nieuwmarkt/Lastage, Centrum, Amsterdam, Noord-Holland, Nederland, 1011 HP, Nederland</td>
+<td>(52.370323, 4.899345)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Van Gessel Advocaten, 7, Amstelveld, Grachtengordel, Centrum, Amsterdam, Noord-Holland, Nederland, 1017 JD, Nederland</td>
+<td>(52.3625768, 4.8980901)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Soembawastraat, Indische Buurt, Oost, Amsterdam, Noord-Holland, Nederland, 1095 VW, Nederland</td>
+<td>(52.3644253, 4.943545118223069)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>617, Keizersgracht, Grachtengordel, Centrum, Amsterdam, Noord-Holland, Nederland, 1017 DS, Nederland</td>
+<td>(52.3639102, 4.8938953)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>856, Westerdok, Centrum, Amsterdam, Noord-Holland, Nederland, 1013 BV, Nederland</td>
+<td>(52.3874861, 4.8920172)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>22, Heiligeweg, Centrum, Amsterdam, Noord-Holland, Nederland, 1012 XR, Nederland</td>
+<td>(52.3677894, 4.8909156)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Lewben Netherlands, 493, Herengracht, Gouden Bocht, Grachtengordel, Centrum, Amsterdam, Noord-Holland, Nederland, 1017 BT, Nederland</td>
+<td>(52.3656512, 4.8911304)</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Het Scheepvaartmuseum, 1, Kattenburgerplein, Marineterrein, Oostelijke Eilanden, Centrum, Amsterdam, Noord-Holland, Nederland, 1018 KK, Nederland</td>
+<td>(52.371676699999995, 4.915223006504673)</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Van Nijenrodeweg, Buitenveldert, Zuid, Amsterdam, Noord-Holland, Nederland, 1083 CL, Nederland</td>
+<td>(52.32783930581986, 4.8768000120565125)</td>
+</tr>
+<tr>
+<td>16</td>
+<td>7-1, Binnen Brouwersstraat, Haarlemmerbuurt, Centrum, Amsterdam, Noord-Holland, Nederland, 1013 EE, Nederland</td>
+<td>(52.3802642, 4.8908935)</td>
+</tr>
+<tr>
+<td>17</td>
+<td>174-1A, Czaar Peterstraat, Czaar Peterbuurt, Oostelijke Eilanden, Centrum, Amsterdam, Noord-Holland, Nederland, 1018 PX, Nederland</td>
+<td>(52.3711863, 4.9314646)</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Grachtengordel van Amsterdam, Nassaukade, Staatsliedenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1052 CH, Nederland</td>
+<td>(52.37197895, 4.884726800042784)</td>
+</tr>
+<tr>
+<td>19</td>
+<td>121, Lumierestraat, IJburg, Oost, Amsterdam, Noord-Holland, Nederland, 1087 JA, Nederland</td>
+<td>(52.3556276, 5.0032216)</td>
+</tr>
+<tr>
+<td>20</td>
+<td>40G, Nicolaas Witsenkade, Centrum, Amsterdam, Noord-Holland, Nederland, 1017 ZV, Nederland</td>
+<td>(52.35805575, 4.897501820666131)</td>
+</tr>
+<tr>
+<td>···</td>
+<td>···</td>
+<td>···</td>
+</tr>
+<tr>
+<td>8367</td>
+<td>Kees Boekestraat, Frankendael, Oost, Amsterdam, Noord-Holland, Nederland, 1097 ED, Nederland</td>
+<td>(52.34626555, 4.9216897336955725)</td>
+</tr>
+<tr>
+<td>8368</td>
+<td>Venetiestraat, KNSM-eiland, Oostelijk Havengebied, Oost, Schellingwoude, Amsterdam, Noord-Holland, Nederland, 1019 NH, Nederland</td>
+<td>(52.3770188759731, 4.946660318306404)</td>
+</tr>
+<tr>
+<td>8369</td>
+<td>52-2, Cornelis Trooststraat, Nieuwe Pijp, De Pijp, Zuid, Amsterdam, Noord-Holland, Nederland, 1072 JH, Nederland</td>
+<td>(52.3505252, 4.8890981)</td>
+</tr>
+<tr>
+<td>8370</td>
+<td>Magerhorst, Buitenveldert, Zuid, Amsterdam, Noord-Holland, Nederland, 1082 VA, Nederland</td>
+<td>(52.33292437719005, 4.873597096865072)</td>
+</tr>
+<tr>
+<td>8371</td>
+<td>108-H, Nieuwe Kerkstraat, Weesperbuurt, Centrum, Amsterdam, Noord-Holland, Nederland, 1018 VM, Nederland</td>
+<td>(52.36435, 4.9069721)</td>
+</tr>
+<tr>
+<td>8372</td>
+<td>2-1, Sluisstraat, Schinkelbuurt, Zuid, Amsterdam, Noord-Holland, Nederland, 1075 TE, Nederland</td>
+<td>(52.3526631, 4.8557258)</td>
+</tr>
+<tr>
+<td>8373</td>
+<td>A&#39;DAM Toren, 5, Overhoeksplein, Overhoeks, Noord, Amsterdam, Noord-Holland, Nederland, 1031 KS, Nederland</td>
+<td>(52.38377245, 4.902137831559482)</td>
+</tr>
+<tr>
+<td>8374</td>
+<td>101, Houthavenkade, Houthaven, West, Amsterdam, Noord-Holland, Nederland, 1014 ZB, Nederland</td>
+<td>(52.3957477, 4.8799986)</td>
+</tr>
+<tr>
+<td>8375</td>
+<td>16-1, Stolwijkstraat, Hoofddorperpleinbuurt, Zuid, Amsterdam, Noord-Holland, Nederland, 1059 XW, Nederland</td>
+<td>(52.3509847, 4.8482898)</td>
+</tr>
+<tr>
+<td>8376</td>
+<td>35C, Kazernestraat, Centrum, Amsterdam, Noord-Holland, Nederland, 1018 CC, Nederland</td>
+<td>(52.3644442, 4.9213587)</td>
+</tr>
+<tr>
+<td>8377</td>
+<td>70, Van Swindendwarsstraat, Dapperbuurt, Oost, Amsterdam, Noord-Holland, Nederland, 1093 ZA, Nederland</td>
+<td>(52.3610996, 4.9257394)</td>
+</tr>
+<tr>
+<td>8378</td>
+<td>119-1A, Spaarndammerstraat, Spaarndammerbuurt, West, Amsterdam, Noord-Holland, Nederland, 1013 TE, Nederland</td>
+<td>(52.3907436, 4.878113)</td>
+</tr>
+<tr>
+<td>8379</td>
+<td>Bos en Lommerplantsoen, Erasmuspark, West, Amsterdam, Noord-Holland, Nederland, 1055 SC, Nederland</td>
+<td>(52.37620198385094, 4.845430591553929)</td>
+</tr>
+<tr>
+<td>8380</td>
+<td>42-4, Sarphatipark, De Pijp, Zuid, Amsterdam, Noord-Holland, Nederland, 1073 CZ, Nederland</td>
+<td>(52.3531466, 4.8948963)</td>
+</tr>
+<tr>
+<td>8381</td>
+<td>43A, Transvaalstraat, Transvaalbuurt, Oost, Amsterdam, Noord-Holland, Nederland, 1092 HC, Nederland</td>
+<td>(52.3551787, 4.926256)</td>
+</tr>
+<tr>
+<td>8382</td>
+<td>225A, Johan van Hasseltkade, Noord, Amsterdam, Noord-Holland, Nederland, 1032 LP, Nederland</td>
+<td>(52.394626900000006, 4.906245857100501)</td>
+</tr>
+<tr>
+<td>8383</td>
+<td>37A-1, Meidoornplein, Volewijck, Noord, Amsterdam, Noord-Holland, Nederland, 1031 GB, Nederland</td>
+<td>(52.3880403, 4.9110192)</td>
+</tr>
+<tr>
+<td>8384</td>
+<td>Natuur is leuk, Brettenpad, Sloterdijk, West, Amsterdam, Noord-Holland, Nederland, 1014 BG, Nederland</td>
+<td>(52.3864113, 4.848104)</td>
+</tr>
+<tr>
+<td>8385</td>
+<td>Hotel Doria, Pijlsteeg, Burgwallen-Oude Zijde, Centrum, Amsterdam, Noord-Holland, Nederland, 1012 JL, Nederland</td>
+<td>(52.3724267, 4.894502)</td>
+</tr>
+<tr>
+<td>8386</td>
+<td>Eemsstraat, Rijnbuurt, Zuid, Amsterdam, Noord-Holland, Nederland, 1079 BS, Nederland</td>
+<td>(52.34204645, 4.909319813263932)</td>
+</tr>
+</tbody></table>
+</div>
+
+
+
+
