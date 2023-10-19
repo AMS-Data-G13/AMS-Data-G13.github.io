@@ -72,7 +72,7 @@ for i,row in Loc.iterrows():
 
 Here is part of [csvfile: location](/files/location.csv):
 
-<div class="table-area" markdown="block">
+<div class="table-wrapper" markdown="block">
   
 |      | location                                                                                                                                          | coordinate                              |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
