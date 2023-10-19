@@ -16,5 +16,5 @@
     padding : 5px;
 }
 .table-wrapper {
-  overflow-x: scroll;
+  overflow-y: scroll;
 }
