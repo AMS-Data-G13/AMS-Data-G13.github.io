@@ -71,13 +71,6 @@ for i,row in Loc.iterrows():
 ```
 
 Here is part of [csvfile: location](/files/location.csv):
-
-<style>
-pre {
-  overflow-y: auto;
-  max-height: 300px;
-}
-</style>
   
 |      | location                                                                                                                                          | coordinate                              |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
