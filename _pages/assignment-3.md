@@ -412,6 +412,7 @@ For this question, we were unsure about how to utilize the BBGA dataset, so all 
 ### 5.How many hotel rooms should be built if Amsterdam wants to accommodate the same number of tourists?
 
 Referring to the data in Table, we assume that Amsterdam typically receives 786,000 overnight visitors in May. Adding 30,000 people to this number brings the expected number of overnight guests in Amsterdam in May to 816,000, which does not exceed the maximum number of guests Amsterdam can accommodate, so no additional hotel rooms are needed.
+
 |Country of residence|Regions  |Periods       |Guests (x 1 000)|
 |--------------------|---------|--------------|----------------|
 |All countries       |Amsterdam|2022 September|649             |
