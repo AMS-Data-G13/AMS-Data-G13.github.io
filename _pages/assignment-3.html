@@ -1875,12 +1875,38 @@ author_profile: true
 <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
 </code></pre></div></div>
 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s1">'Hotel room'</span><span class="p">,</span> <span class="s1">'Entire home/apt'</span><span class="p">,</span> <span class="s1">'Private room'</span><span class="p">,</span> <span class="s1">'Shared room'</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">54</span><span class="p">,</span> <span class="mi">6477</span><span class="p">,</span> <span class="mi">1813</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># check the amount of rooms which is available all year</span>
+<span class="n">rooms</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<span class="n">num_rented</span> <span class="o">=</span> <span class="n">len</span><span class="p">(</span><span class="n">airbnb</span><span class="p">.</span><span class="nf">query</span><span class="p">(</span><span class="s1">'availability_365 &lt; 365'</span><span class="p">))</span>
+<span class="n">normal</span> <span class="o">=</span> <span class="n">rooms</span> <span class="o">-</span> <span class="n">num_rented</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">normal</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>36
+</code></pre></div></div>
+
 <p>
-  For this question, we were unsure about how to utilize the BBGA dataset, so all the responses are based on Airbnb data. Among the four room types, hotel rooms are not categorized as housing. Therefore, as an answer to the first question, 54 rooms were not designated as housing. Regarding the second question, we conducted a count of all properties with fewer than 365 available days, which totaled 8,350. Consequently, the remaining 37 properties have not been rented at all and are utilized as residential housing.
+  For this question, we were unsure about how to utilize the BBGA dataset, so all the responses are based on Airbnb data. Among the four room types, hotel rooms are not categorized as housing. Therefore, as an answer to the first question, 54 rooms were not designated as housing. Regarding the second question, we conducted a count of all properties with fewer than 365 available days, which totaled 8,350. Consequently, the remaining 36 properties have not been rented at all and are utilized as residential housing.
 </p>
 
 <h3 id="5how-many-hotel-rooms-should-be-built-if-amsterdam-wants-to-accommodate-the-same-number-of-tourists">5.How many hotel rooms should be built if Amsterdam wants to accommodate the same number of tourists?</h3>
 
+<p>
+  Referring to the data in Table, we assume that Amsterdam typically receives 786,000 overnight visitors in May. Adding 30,000 people to this number brings the expected number of overnight guests in Amsterdam in May to 816,000, which does not exceed the maximum number of guests Amsterdam can accommodate, so no additional hotel rooms are needed.
+</p>
+
+<table>
+  <thead><tr><th>Country of residence</th><th>Regions</th><th>Periods</th><th>Guests (x&nbsp;1&nbsp;000)</th></tr></thead><tbody><tr><td>All countries</td><td>Amsterdam</td><td>2022 September</td><td>649</td></tr><tr><td>All countries</td><td>Amsterdam</td><td>2022 October</td><td>702</td></tr><tr><td>All countries</td><td>Amsterdam</td><td>2022 November</td><td>655</td></tr><tr><td>All countries</td><td>Amsterdam</td><td>2022 December</td><td>605</td></tr><tr><td>All countries</td><td>Amsterdam</td><td>2023 January*</td><td>575</td></tr><tr><td>All countries</td><td>Amsterdam</td><td>2023 February*</td><td>560</td></tr><tr><td>All countries</td><td>Amsterdam</td><td>2023 March*</td><td>684</td></tr><tr><td>All countries</td><td>Amsterdam</td><td>2023 April*</td><td>766</td></tr><tr><td>All countries</td><td>Amsterdam</td><td>2023 May*</td><td>786</td></tr><tr><td>All countries</td><td>Amsterdam</td><td>2023 June*</td><td>773</td></tr><tr><td>All countries</td><td>Amsterdam</td><td>2023 July*</td><td>919</td></tr><tr><td>All countries</td><td>Amsterdam</td><td>2023 August*</td><td>776</td></tr></tbody>
+</table>
+
+<p>
+  <span style="color:grey"> (Table, Hotels; guests, overnight stays, country of residence, region. Source: <a href="https://www.cbs.nl/en-gb/figures/detail/82061ENG?q=amsterdam#shortTableDescription">Statistics Netherlands</a>) </span>
+</p>
+  
 <h3 id="6how-many-different-licenses-are-issued">6.How many different licenses are issued?</h3>
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="n">pandas</span> <span class="n">as</span> <span class="n">pd</span>
 <span class="n">import</span> <span class="n">matplotlib</span><span class="p">.</span><span class="nf">pyplot</span> <span class="n">as</span> <span class="n">plt</span>
