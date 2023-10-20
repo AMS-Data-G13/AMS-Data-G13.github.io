@@ -50,14 +50,37 @@ According to emission free mobility agenda from Amsterdam’s municipality (figu
 
 In comparison for CO2 canalboats represent less than >2% of emissions while private cars represent 69% and urban fright vans and trucks represent 11% and 7% accordingly. Private cars contribute more than 34.5 times more CO2 for urban transportation than passenger and leisure boats combined.
 
-
+![emission](/images/emission.jpg)
+<span style="color:grey"> (Figure 6, Emissions per vehicle category. missions by mode in Amsterdam 2020. Source: </span>![Uitvoeringsagenda Uitstootvrije mobiliteit Amsterdam 2023-2026](/files/uitvoeringsagen.pdf)
 
 ### - Would you consider it economically feasible?
 
+When considering a fleet where there are still 6248 boats (7350-1120 electric boats) that are diesel or gas-driven, that means a minimum replacement cost of 93 720 000 euros and a maximum cost of 312 400 000 (TNO, 2023). However, a more likely number is an average of around 202.475 000 euros. Whether this is practical depends on the canal boat companies' ability to invest or possible tax cuts or incentives from the municipality to support this effort. 
+
+Event sponsorships provide an opportunity to effectively engage and influence a substantial customer base, and this remains true for net zero events. Activities like sporting events typically generate significant carbon emissions, they possess significant potential to shape the perspectives of participants. By organizing carbon-neutral events, companies have the choice to promote sustainability and demonstrate their proactive measures towards addressing climate change. This not only enhances their reputation but also attracts new investors who recognize the value of supporting such initiatives. Moreover, reducing emissions translates into cost savings, making it financially advantageous as well. [(Kasia, 2023)] 
+(https://planbe.eco/blog/how-to-organize-carbon-neutral-events/)
+
 ### - How many support boats and vehicles are needed for the Paralympics event only?
+
+According to FINA (Federation Internationale de Natation) All events including those of less than 10km require safety support and this is usually provided in the form of kayaks or paddleboards to provide close support to the swimmers around the course, supported by motorized safety craft to evacuate any swimmers removed from the course and requiring medical assessment and support.
+
+Organizers should consider the use of both boats and paddleboards as escorts. The boats support the paddleboards with back-up paddlers, food, and coach for the swimmer. It may be possible, although not always necessary, to have one boat act as a hub for several satellite boats or swimmers. (“FINA OPEN WATER SWIMMING MANUAL 2022,” 2018) This could be provided by The KNRM (The Royal Netherlands Sea Rescue Institution), as it is done for the Amsterdam Swim Event. [(swim along, n.d.)](https://www.amsterdamcityswim.nl/english) 
+
+According to the World Open Water Swimming Association (2023) there would be necessary to have 4 boats to monitor and support swimmers for an open water event. Monitoring the lead pack, Monitoring middle-of-the-pack and trailing swimmers, medical support, and Emergency response plan boat. 
 
 ### - If only clean energy can be used, how many solar panels or wind turbines are needed?
 
+Considering the 4 support boats that will be required. We will assume that the vessels will be used for 6h during this day to support the athletes and prepare for the event. This means the boat canals will run for 24h and need 1.572 kWh/h, leading to an energy need of 37.728 kWh for the event. We will need 20401.06 WP of solar panels for one full day to power the boats, or we could use 68 whole solar panels (300WP) for one day. According to the Netherlands, one WP of solar panels generates 0.9 kWh of energy per year, or on average 0.00247 kWh per day. [(Moraitis et al, 2018)](https://www.mdpi.com/1996-1073/11/6/1333)
+
 ### - Is it possible to accommodate these facilities within the city?
 
+There is space for approximately 3 250 000 more solar panels (300WP) on rooftops in Amsterdam, according to research from AMS. Therefore, there is enough space to produce the energy required for the event locally. Another option would be to install solar panels directly on the boats. In fact, more and more boats are being equipped with solar panels.
+
 ### - Would their be any effect on the water quality if there are less/no canal boats using fossil fules?
+
+Prior measurements of water quality have primarily focused on e.coli and blue alga, which are primarily caused by sewage water overflowing, warmth, and fertilizer in the water. Therefore, while removing fossil fuel riven boats from the canals will reduce the amount of leakage in the canals, we assume that it's not relevant to the main pollution issues. [(Minami, 2003)](https://union-services.com/aevs/483-488.pdf) 
+
+![Boats](/images/Boats.JPG)
+<span style="color:grey"> (Figure 7, Emissions from pleasure boating compared to urban shipping and road traffic. Source: </span>![Uitvoeringsagenda Uitstootvrije mobiliteit Amsterdam 2023-2026](/files/uitvoeringsagen.pdf)
+
+Acording to the Uitvoeringsagenda Uitstootvrije mobiliteit Amsterdam 2023-2026, the World Health Organization (WHO) has significantly tightened its recommended values for air quality in 2021.1 This highlights the need to make the air in Amsterdam even cleaner. Due to the city's poor air quality, the average Amsterdammer lives approximately 11 months less and smokes an average of 4.4 cigarettes per day. Making all pleasure and transport vessels electric will make a difference in this aspect.  
