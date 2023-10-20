@@ -37,12 +37,12 @@ In the same period, July to August 2022, the daily rhythm of manned passenger sh
 <div align="center">
     <img src="/images/DailyRhythm.JPG" alt="Daily">
 </div>
-<span style="color:grey"> (Figure 4, Daily rhythm of manned passenger shipping. Average number of active passenger vessels per hour of the day. Source: </span>[Gemeente Amsterdam Grachtenmonitor 2022]
+<span style="color:grey"> (Figure 4, Daily rhythm of manned passenger shipping. Average number of active passenger vessels per hour of the day. Source: </span> [Gemeente Amsterdam Grachtenmonitor 2022](https://openresearch.amsterdam/nl/page/92981/grachtenmonitor-2022))
 
 On August 12 to 14, 2022 it was dry and the maximum temperature averaged 31 degrees Celsius. Almost 50,000 passages were observed at all locations together (figure 5). The highest number of passages per hour was measured between 3:00 PM and 5:00 PM. On Saturday it was busier than on Friday and Sunday (20-25% more passages). 
 
 ![Average](/images/Avarage.JPG)
-<span style="color:grey"> (Figure 5, Average number of passages per hour in the period 12 to 14 August 2022 between 9:00 AM and 11:00 PM at 11 measuring points in the city. Source: </span>[Gemeente Amsterdam Grachtenmonitor 2022]
+<span style="color:grey"> (Figure 5, Average number of passages per hour in the period 12 to 14 August 2022 between 9:00 AM and 11:00 PM at 11 measuring points in the city. Source: </span>[Gemeente Amsterdam Grachtenmonitor 2022](https://openresearch.amsterdam/nl/page/92981/grachtenmonitor-2022))
 
 ### - Try to compare the energy use of the canal boats to some other activities in the city. Use canal boats more or less energy in relation to their carbon footprint compared to these other activities?
 
