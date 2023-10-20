@@ -200,7 +200,7 @@ print(name)
 ![Cafe](/images/Figure_4.png) 
 <p style="text-align: center;"> <span style="color:grey"> (Figure 4, all nearby cafes and restaurants) </span> </p>
 
-[Table 2](/files/StreetName.csv)
+[Table 2](/files/name_listing.csv)
 
 |num|amenity   |length |name                                 |geometry                    |
 |---|----------|-------|-------------------------------------|----------------------------|
