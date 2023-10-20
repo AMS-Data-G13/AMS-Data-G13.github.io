@@ -149,6 +149,26 @@ In the estimation, we have assumed an average arrival frequency of 5 buses per h
 
 ### 5.Calculate the centrality of the start, finish, and centre node of the route. Which centrality calculation makes the most sense. [See this link](https://networkx.org/documentation/stable/reference/algorithms/centrality.html).
 
+Closeness centrality measures how easily a node can reach other nodes in a network. It's used to determine the point's accessibility within a network. Nodes with high closeness centrality are closer, in terms of network connections, to other nodes. In a geographic context, this reflects that these points are more accessible, similar to how central locations in a city are more easily reachable from other places. Therefore, we choose closeness centrality to give support evidence for the choosing of the points.
+
+```ruby
+graph = ox.graph_from_point(center_point, dist=5000)
+nodes = ox.distance.nearest_nodes(graph, location[1], location[0], return_dist=True)
+nodes_to = ox.distance.nearest_nodes(graph, location_to[1], location_to[0], return_dist=True)
+nodes_cen = ox.distance.nearest_nodes(graph, center_point[1], center_point[0], return_dist=True)
+start_centrality = nx.closeness_centrality(graph, nodes[0])
+cen_centrality = nx.closeness_centrality(graph, nodes_cen[0])
+end_centrality = nx.closeness_centrality(graph, nodes_to[0])
+print(start_centrality,cen_centrality,end_centrality)
+```
+
+|Start point |0.014975167550752658|
+|Center point|0.016698413110206794|
+|End point   |0.014168299848680767|
+
+
+The results are largely consistent with our expectations. The center point is indeed closer to the center of Amsterdam, which makes it more accessible to other points on the map. However, it's important to note that the calculated results can vary based on factors such as the selected map size and the parameters used, including the choice of the center point.
+
 ### 6.Find all cafes, restaurants near the finish line. Walking time smaller than 10 minutes.
 
 ```ruby
