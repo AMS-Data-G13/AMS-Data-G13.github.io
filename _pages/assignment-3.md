@@ -435,7 +435,7 @@ Referring to the data in Table, we assume that Amsterdam typically receives 786,
 import pandas as pd
 import matplotlib.pyplot as plt
 
-airbnb = pd.read_csv('D:/MADE/Metropolitan Data1/Workshops/exercise/listings.csv')
+airbnb = pd.read_csv('listings.csv')
 
 num = [] 
 num = []
