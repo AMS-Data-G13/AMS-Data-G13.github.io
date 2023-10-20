@@ -31,8 +31,13 @@ It is assumed that Amsterdam will receive between €4,488,750 and €8,347,500 
 import pandas as pd
 import plotly.express as px
 
-airbnb = pd.read_csv('listings.csv') 
+# import airbnb data
+airbnb = pd.read_csv('listings.csv')
+
+# calculate the number of rooms for each neighbourhood
 neighbourhood = airbnb.neighbourhood.value_counts()
+
+# plotting the result
 fig = px.bar(neighbourhood, y='count', text_auto=True)
 fig.show()
 ```
@@ -52,6 +57,7 @@ airbnb = pd.read_csv('listings.csv')
 geolocator = Nominatim(user_agent="user_name")
 Loc = airbnb[['latitude','longitude']]
 
+#Get a specific address based on latitude and longitude
 file = 'location.csv'
 header = ['location', 'coordinate']
 with open(file,'w',encoding='utf-8',newline='') as csvfile:
@@ -126,12 +132,14 @@ We can see that not all addresses have the same format, but the second last posi
 import pandas as pd
 from collections import Counter
 
+#Get the postcode from the address
 Location = pd.read_csv('location.csv') 
 street = []
 for i, row in Location.iterrows():
     Location_split = row[1].split(',')
     street.append(Location_split[-2]) 
 
+#Counting which postcodes appear most often
 count = Counter(street)
 postcode = pd.DataFrame(count, index=[0])
 postcode.to_csv('postcode.csv', index=False)
@@ -150,6 +158,7 @@ Here are the top five [postcodes](/files/postcode.csv) in terms of occurrences:
 We can see that 1052 CH appears 175 times far more than any other postcode. Next we will look at which addresses are at 1052 CH.
 
 ```ruby
+#Filter out addresses containing the most frequently occurring postcodes
 df = pd.DataFrame(street)
 #To eliminate spaces in the postcode
 post = []
@@ -355,19 +364,50 @@ Obviously the street called Nassaukade has the most Airbnb's.
 ### 4.Try to cross reference the data from the AirBnB dataset with the BBGA. Can you figure out if all apartments of AirBnB are designated as housing? Which number of apartments are not rented out all the time but are also used as normal housing?
 
 ```ruby
-count = [] 
-for i in range(4): 
-    name = house_type[i] 
-    a = airbnb.query('room_type == @name') 
-    count.append(len(a)) 
-print(count) 
-room_type_count = pd.DataFrame([count], columns = house_type) 
-#Question 4-2 
-num_rented = len(airbnb.query('availability_365 < 365')) 
-print(num_rented)
+import pandas as pd
+import matplotlib.pyplot as plt
+
+airbnb = pd.read_csv('listings.csv')
+num = [] 
+name = [] 
+airbnb_list = airbnb.transpose() 
+airbnb1 = airbnb_list.values.tolist() 
+
+# define a function to find duplicates
+def find_duplicates(lst): 
+    return list(set([x for x in lst if lst.count(x) > 1]))
+
+# find the duplicate house types
+house_type = find_duplicates(airbnb1[8]) 
+print(house_type) 
+
+# counting the numbers for each room type
+count = []
+for i in range(4):
+    name = house_type[i]
+    a = airbnb.query('room_type == @name')
+    count.append(len(a))
+print(count)
 ```
 
-For this question, we were unsure about how to utilize the BBGA dataset, so all the responses are based on Airbnb data. Among the four room types, hotel rooms are not categorized as housing. Therefore, as an answer to the first question, 54 rooms were not designated as housing. Regarding the second question, we conducted a count of all properties with fewer than 365 available days, which totaled 8,350. Consequently, the remaining 37 properties have not been rented at all and are utilized as residential housing.
+```ruby
+['Hotel room', 'Entire home/apt', 'Private room', 'Shared room']
+[54, 6477, 1813, 42]
+```
+
+```ruby
+# check the amount of rooms which is available all year
+rooms = sum(count)
+num_rented = len(airbnb.query('availability_365 < 365'))
+normal = rooms - num_rented
+print(normal)
+```
+
+```
+36
+```
+
+For this question, we were unsure about how to utilize the BBGA dataset, so all the responses are based on Airbnb data. Among the four room types, hotel rooms are not categorized as housing. Therefore, as an answer to the first question, 54 rooms were not designated as housing. Regarding the second question, we conducted a count of all properties with fewer than 365 available days, which totaled 8,350. Consequently, the remaining 36 properties have not been rented at all and are utilized as residential housing.
 
 ### 5.How many hotel rooms should be built if Amsterdam wants to accommodate the same number of tourists?
 
