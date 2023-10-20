@@ -50,8 +50,10 @@ According to emission free mobility agenda from Amsterdam’s municipality (figu
 
 In comparison for CO2 canalboats represent less than >2% of emissions while private cars represent 69% and urban fright vans and trucks represent 11% and 7% accordingly. Private cars contribute more than 34.5 times more CO2 for urban transportation than passenger and leisure boats combined.
 
-![emission](/images/emission.jpg)
-<span style="color:grey"> (Figure 6, Emissions per vehicle category. missions by mode in Amsterdam 2020. Source: </span>![Uitvoeringsagenda Uitstootvrije mobiliteit Amsterdam 2023-2026](/files/uitvoeringsagen.pdf)
+<div align="center">
+    <img src="/images/emission.jpg" alt="emission">
+</div>
+<span style="color:grey"> (Figure 6, Emissions per vehicle category. missions by mode in Amsterdam 2020. Source: </span>[Uitvoeringsagenda Uitstootvrije mobiliteit Amsterdam 2023-2026](/files/uitvoeringsagen.pdf)
 
 ### - Would you consider it economically feasible?
 
@@ -81,6 +83,6 @@ There is space for approximately 3 250 000 more solar panels (300WP) on rooftops
 Prior measurements of water quality have primarily focused on e.coli and blue alga, which are primarily caused by sewage water overflowing, warmth, and fertilizer in the water. Therefore, while removing fossil fuel riven boats from the canals will reduce the amount of leakage in the canals, we assume that it's not relevant to the main pollution issues. [(Minami, 2003)](https://union-services.com/aevs/483-488.pdf) 
 
 ![Boats](/images/Boats.JPG)
-<span style="color:grey"> (Figure 7, Emissions from pleasure boating compared to urban shipping and road traffic. Source: </span>![Uitvoeringsagenda Uitstootvrije mobiliteit Amsterdam 2023-2026](/files/uitvoeringsagen.pdf)
+<span style="color:grey"> (Figure 7, Emissions from pleasure boating compared to urban shipping and road traffic. Source: </span>[Uitvoeringsagenda Uitstootvrije mobiliteit Amsterdam 2023-2026](/files/uitvoeringsagen.pdf)
 
 Acording to the Uitvoeringsagenda Uitstootvrije mobiliteit Amsterdam 2023-2026, the World Health Organization (WHO) has significantly tightened its recommended values for air quality in 2021.1 This highlights the need to make the air in Amsterdam even cleaner. Due to the city's poor air quality, the average Amsterdammer lives approximately 11 months less and smokes an average of 4.4 cigarettes per day. Making all pleasure and transport vessels electric will make a difference in this aspect.  
