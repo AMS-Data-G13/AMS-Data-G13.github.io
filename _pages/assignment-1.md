@@ -23,7 +23,9 @@ You can swim next to the AMS but the water there is heavily monitored, is this t
 
 RIVM, the Dutch National Institute for Public Health and the Environment, conducts regular assessments during the bathing season to ensure the quality of the bathing water in designated swimming areas. In the Netherlands, the bathing season typically runs from May 1st to October 1st. However, it is worth noting that, according to the zwemwater.com website, there are currently no designated swimming areas located within the Amsterdam City Center. [(Quality of Bathing Water, 2018)](https://www.rivm.nl/en/soil-and-water/bathing-water/quality-of-bathing-water) 
 
-![Zwemwaterl](/images/Figure3.Zwemwaterl.JPG)<br>
+<div align="center">
+    <img src="/images/Figure3.Zwemwaterl.JPG" alt="Zwemwaterl">
+</div>
 <span style="color:grey"> (Figure 3, Designated Swimming locations in Amsterdam Center. Source: </span>[Swim](https://www.zwemwater.nl/))
 
 Currently, Waternet is responsible for conducting measurements related to water quality in the Amsterdam canals. However, since these canals are not officially recognized as European bathing sites, routine monitoring of water quality is not always carried out. Sampling for Escherichia Coli and intestinal enterococcus is conducted once every two weeks during the summer season (mid-April to October) at specific locations. However, at other locations, these measurements are taken only once per summer, and some areas are not tested at all. Additionally, it takes three days to obtain the results using this testing method. This means that the available data always lag behind the actual situation, and there is a possibility of missing instances of poor water quality. Developing a water system model that allows for timely indication of water quality would be a potential solution in this case. [Van Den Tillaart, 2017](https://edepot.wur.nl/528034)
