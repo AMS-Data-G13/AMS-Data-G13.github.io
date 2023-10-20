@@ -411,24 +411,54 @@ For this question, we were unsure about how to utilize the BBGA dataset, so all 
 
 ### 5.How many hotel rooms should be built if Amsterdam wants to accommodate the same number of tourists?
 
+Referring to the data in Table, we assume that Amsterdam typically receives 786,000 overnight visitors in May. Adding 30,000 people to this number brings the expected number of overnight guests in Amsterdam in May to 816,000, which does not exceed the maximum number of guests Amsterdam can accommodate, so no additional hotel rooms are needed.
+|Country of residence|Regions  |Periods       |Guests (x 1 000)|
+|--------------------|---------|--------------|----------------|
+|All countries       |Amsterdam|2022 September|649             |
+|All countries       |Amsterdam|2022 October  |702             |
+|All countries       |Amsterdam|2022 November |655             |
+|All countries       |Amsterdam|2022 December |605             |
+|All countries       |Amsterdam|2023 January* |575             |
+|All countries       |Amsterdam|2023 February*|560             |
+|All countries       |Amsterdam|2023 March*   |684             |
+|All countries       |Amsterdam|2023 April*   |766             |
+|All countries       |Amsterdam|2023 May*     |786             |
+|All countries       |Amsterdam|2023 June*    |773             |
+|All countries       |Amsterdam|2023 July*    |919             |
+|All countries       |Amsterdam|2023 August*  |776             |
+
+<span style="color:grey"> (Table, Hotels; guests, overnight stays, country of residence, region. Source: [Statistics Netherlands](https://www.cbs.nl/en-gb/figures/detail/82061ENG?q=amsterdam#shortTableDescription)) </span>
+
 ### 6.How many different licenses are issued?
 
 ```ruby
-plt.close("all") 
+import pandas as pd
+import matplotlib.pyplot as plt
+
+airbnb = pd.read_csv('D:/MADE/Metropolitan Data1/Workshops/exercise/listings.csv')
+
 num = [] 
-name = [] 
-airbnb_list = airbnb.transpose() 
-airbnb1 = airbnb_list.values.tolist() 
-def find_duplicates(lst): 
-    return list(set([x for x in lst if lst.count(x) > 1])) 
-house_type = find_duplicates(airbnb1[8]) 
-print(house_type) 
-for i in house_type: 
-    #print(str(i[0])) 
-    sublist = airbnb.loc[airbnb['room_type'] == str(i)] 
-    num.append(sublist.shape[0]) 
-    name.append(str(i)) 
-plt.barh(name, num) 
+num = []
+name = []
+airbnb_list = airbnb.transpose()
+airbnb1 = airbnb_list.values.tolist()
+
+# define a function to find duplicates
+def find_duplicates(lst):
+    return list(set([x for x in lst if lst.count(x) > 1]))
+
+# find the duplicate house types
+house_type = find_duplicates(airbnb1[8])
+
+# find names and numbers for each house type
+for i in house_type:
+    # print(str(i[0]))
+    sublist = airbnb.loc[airbnb['room_type'] == str(i)]
+    num.append(sublist.shape[0])
+    name.append(str(i))
+
+# plotting
+plt.barh(name, num)
 plt.show()
 ```
 
