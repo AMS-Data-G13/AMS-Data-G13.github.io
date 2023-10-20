@@ -53,14 +53,13 @@ In comparison for CO2 canalboats represent less than >2% of emissions while priv
 <div align="center">
     <img src="/images/emission.jpg" alt="emission">
 </div>
-<span style="color:grey"> (Figure 6, Emissions per vehicle category. missions by mode in Amsterdam 2020. Source: </span> [Uitvoeringsagenda Uitstootvrije mobiliteit Amsterdam 2023-2026](/files/uitvoeringsagen.pdf)
+<span style="color:grey"> (Figure 6, Emissions per vehicle category. missions by mode in Amsterdam 2020. Source: </span> [Uitvoeringsagenda Uitstootvrije mobiliteit Amsterdam 2023-2026](/files/uitvoeringsagen.pdf))
 
 ### - Would you consider it economically feasible?
 
 When considering a fleet where there are still 6248 boats (7350-1120 electric boats) that are diesel or gas-driven, that means a minimum replacement cost of 93 720 000 euros and a maximum cost of 312 400 000 (TNO, 2023). However, a more likely number is an average of around 202.475 000 euros. Whether this is practical depends on the canal boat companies' ability to invest or possible tax cuts or incentives from the municipality to support this effort. 
 
-Event sponsorships provide an opportunity to effectively engage and influence a substantial customer base, and this remains true for net zero events. Activities like sporting events typically generate significant carbon emissions, they possess significant potential to shape the perspectives of participants. By organizing carbon-neutral events, companies have the choice to promote sustainability and demonstrate their proactive measures towards addressing climate change. This not only enhances their reputation but also attracts new investors who recognize the value of supporting such initiatives. Moreover, reducing emissions translates into cost savings, making it financially advantageous as well. [(Kasia, 2023)] 
-(https://planbe.eco/blog/how-to-organize-carbon-neutral-events/)
+Event sponsorships provide an opportunity to effectively engage and influence a substantial customer base, and this remains true for net zero events. Activities like sporting events typically generate significant carbon emissions, they possess significant potential to shape the perspectives of participants. By organizing carbon-neutral events, companies have the choice to promote sustainability and demonstrate their proactive measures towards addressing climate change. This not only enhances their reputation but also attracts new investors who recognize the value of supporting such initiatives. Moreover, reducing emissions translates into cost savings, making it financially advantageous as well. [(Kasia, 2023)](https://planbe.eco/blog/how-to-organize-carbon-neutral-events/)
 
 ### - How many support boats and vehicles are needed for the Paralympics event only?
 
