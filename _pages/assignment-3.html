@@ -36,15 +36,19 @@ author_profile: true
 
 <h3 id="2plot-the-amount-of-airbnb-locations-per-neighbourhood">2.Plot the amount of AirBnB locations per neighbourhood.</h3>
 <div class="language-ruby highlighter-rouge">
-  <div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="n">pandas</span> <span class="n">as</span> <span class="n">pd</span>
+<div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="n">pandas</span> <span class="n">as</span> <span class="n">pd</span>
 <span class="n">import</span> <span class="n">plotly</span><span class="p">.</span><span class="nf">express</span> <span class="n">as</span> <span class="n">px</span>
 
-<span class="n">airbnb</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s1">'listings.csv'</span><span class="p">)</span> 
+<span class="c1"># import airbnb data</span>
+<span class="n">airbnb</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s1">'listings.csv'</span><span class="p">)</span>
+
+<span class="c1"># calculate the number of rooms for each neighbourhood</span>
 <span class="n">neighbourhood</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">.</span><span class="nf">neighbourhood</span><span class="p">.</span><span class="nf">value_counts</span><span class="p">()</span>
+
+<span class="c1"># plotting the result</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="p">.</span><span class="nf">bar</span><span class="p">(</span><span class="n">neighbourhood</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'count'</span><span class="p">,</span> <span class="n">text_auto</span><span class="o">=</span><span class="no">True</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
-</code></pre>
-  </div>
+</code></pre></div>
 </div>
 <p>
   <img src="/images/newplot.png" alt="neighbourhood">
@@ -56,7 +60,7 @@ author_profile: true
 
 <h3 id="3which-street-in-amsterdam-has-the-most-airbnb-apartments">3.Which street in Amsterdam has the most AirBnB apartments?</h3>
 <div class="language-ruby highlighter-rouge">
-  <div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="n">pandas</span> <span class="n">as</span> <span class="n">pd</span>
+<div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="n">pandas</span> <span class="n">as</span> <span class="n">pd</span>
 <span class="n">from</span> <span class="n">geopy</span><span class="p">.</span><span class="nf">geocoders</span> <span class="n">import</span> <span class="no">Nominatim</span>
 <span class="n">import</span> <span class="n">csv</span>
 
@@ -64,6 +68,7 @@ author_profile: true
 <span class="n">geolocator</span> <span class="o">=</span> <span class="no">Nominatim</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="s2">"user_name"</span><span class="p">)</span>
 <span class="no">Loc</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">[[</span><span class="s1">'latitude'</span><span class="p">,</span><span class="s1">'longitude'</span><span class="p">]]</span>
 
+<span class="c1">#Get a specific address based on latitude and longitude</span>
 <span class="n">file</span> <span class="o">=</span> <span class="s1">'location.csv'</span>
 <span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'location'</span><span class="p">,</span> <span class="s1">'coordinate'</span><span class="p">]</span>
 <span class="n">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="s1">'w'</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">,</span><span class="n">newline</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span> <span class="n">as</span> <span class="ss">csvfile:
@@ -80,8 +85,7 @@ author_profile: true
         </span><span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="nf">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>
         <span class="n">writer</span><span class="p">.</span><span class="nf">writerow</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
         <span class="n">csvfile</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
-</code></pre>
-  </div>
+</code></pre></div>
 </div>
 <p>
   Here is part of <a href="/files/location.csv">csvfile: location</a>:
@@ -333,19 +337,23 @@ author_profile: true
 <p>
   We can see that not all addresses have the same format, but the second last position is the postcode, so we’re going to extract the postcode information for each address.
 </p>
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="n">pandas</span> <span class="n">as</span> <span class="n">pd</span>
+<div class="language-ruby highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="n">pandas</span> <span class="n">as</span> <span class="n">pd</span>
 <span class="n">from</span> <span class="n">collections</span> <span class="n">import</span> <span class="no">Counter</span>
 
+<span class="c1">#Get the postcode from the address</span>
 <span class="no">Location</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s1">'location.csv'</span><span class="p">)</span> 
 <span class="n">street</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="k">in</span> <span class="no">Location</span><span class="p">.</span><span class="nf">iterrows</span><span class="p">():</span>
     <span class="no">Location_split</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>
     <span class="n">street</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="no">Location_split</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> 
 
+<span class="c1">#Counting which postcodes appear most often</span>
 <span class="n">count</span> <span class="o">=</span> <span class="no">Counter</span><span class="p">(</span><span class="n">street</span><span class="p">)</span>
 <span class="n">postcode</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="no">DataFrame</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">postcode</span><span class="p">.</span><span class="nf">to_csv</span><span class="p">(</span><span class="s1">'postcode.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="no">False</span><span class="p">)</span>
-</code></pre></div></div>
+</code></pre></div>
+</div>
 <p>
   Here are the top five <a href="/files/postcode.csv">postcodes</a> in terms of occurrences:
 </p>
@@ -400,7 +408,8 @@ author_profile: true
 <p>
   We can see that 1052 CH appears 175 times far more than any other postcode. Next we will look at which addresses are at 1052 CH.
 </p>
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="no">DataFrame</span><span class="p">(</span><span class="n">street</span><span class="p">)</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Filter out addresses containing the most frequently occurring postcodes</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="no">DataFrame</span><span class="p">(</span><span class="n">street</span><span class="p">)</span>
 <span class="c1">#To eliminate spaces in the postcode</span>
 <span class="n">post</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">code</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1840,16 +1849,30 @@ author_profile: true
 </p>
 
 <h3 id="4try-to-cross-reference-the-data-from-the-airbnb-dataset-with-the-bbga-can-you-figure-out-if-all-apartments-of-airbnb-are-designated-as-housing-which-number-of-apartments-are-not-rented-out-all-the-time-but-are-also-used-as-normal-housing">4.Try to cross reference the data from the AirBnB dataset with the BBGA. Can you figure out if all apartments of AirBnB are designated as housing? Which number of apartments are not rented out all the time but are also used as normal housing?</h3>
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">count</span> <span class="o">=</span> <span class="p">[]</span> 
-<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span> 
-    <span class="nb">name</span> <span class="o">=</span> <span class="n">house_type</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
-    <span class="n">a</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">.</span><span class="nf">query</span><span class="p">(</span><span class="s1">'room_type == @name'</span><span class="p">)</span> 
-    <span class="n">count</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> 
-<span class="n">room_type_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="no">DataFrame</span><span class="p">([</span><span class="n">count</span><span class="p">],</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">house_type</span><span class="p">)</span> 
-<span class="c1">#Question 4-2 </span>
-<span class="n">num_rented</span> <span class="o">=</span> <span class="n">len</span><span class="p">(</span><span class="n">airbnb</span><span class="p">.</span><span class="nf">query</span><span class="p">(</span><span class="s1">'availability_365 &lt; 365'</span><span class="p">))</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">num_rented</span><span class="p">)</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="n">pandas</span> <span class="n">as</span> <span class="n">pd</span>
+<span class="n">import</span> <span class="n">matplotlib</span><span class="p">.</span><span class="nf">pyplot</span> <span class="n">as</span> <span class="n">plt</span>
+
+<span class="n">airbnb</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s1">'listings.csv'</span><span class="p">)</span>
+<span class="n">num</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="nb">name</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="n">airbnb_list</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">.</span><span class="nf">transpose</span><span class="p">()</span> 
+<span class="n">airbnb1</span> <span class="o">=</span> <span class="n">airbnb_list</span><span class="p">.</span><span class="nf">values</span><span class="p">.</span><span class="nf">tolist</span><span class="p">()</span> 
+
+<span class="c1"># define a function to find duplicates</span>
+<span class="k">def</span> <span class="nf">find_duplicates</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="n">list</span><span class="p">(</span><span class="n">set</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">lst</span> <span class="k">if</span> <span class="n">lst</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]))</span>
+
+<span class="c1"># find the duplicate house types</span>
+<span class="n">house_type</span> <span class="o">=</span> <span class="n">find_duplicates</span><span class="p">(</span><span class="n">airbnb1</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">house_type</span><span class="p">)</span> 
+
+<span class="c1"># counting the numbers for each room type</span>
+<span class="n">count</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">name</span> <span class="o">=</span> <span class="n">house_type</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">.</span><span class="nf">query</span><span class="p">(</span><span class="s1">'room_type == @name'</span><span class="p">)</span>
+    <span class="n">count</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>
@@ -1859,23 +1882,36 @@ author_profile: true
 <h3 id="5how-many-hotel-rooms-should-be-built-if-amsterdam-wants-to-accommodate-the-same-number-of-tourists">5.How many hotel rooms should be built if Amsterdam wants to accommodate the same number of tourists?</h3>
 
 <h3 id="6how-many-different-licenses-are-issued">6.How many different licenses are issued?</h3>
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="p">.</span><span class="nf">close</span><span class="p">(</span><span class="s2">"all"</span><span class="p">)</span> 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="n">pandas</span> <span class="n">as</span> <span class="n">pd</span>
+<span class="n">import</span> <span class="n">matplotlib</span><span class="p">.</span><span class="nf">pyplot</span> <span class="n">as</span> <span class="n">plt</span>
+
+<span class="n">airbnb</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="s1">'listings.csv'</span><span class="p">)</span>
+
 <span class="n">num</span> <span class="o">=</span> <span class="p">[]</span> 
-<span class="nb">name</span> <span class="o">=</span> <span class="p">[]</span> 
-<span class="n">airbnb_list</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">.</span><span class="nf">transpose</span><span class="p">()</span> 
-<span class="n">airbnb1</span> <span class="o">=</span> <span class="n">airbnb_list</span><span class="p">.</span><span class="nf">values</span><span class="p">.</span><span class="nf">tolist</span><span class="p">()</span> 
-<span class="k">def</span> <span class="nf">find_duplicates</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span> 
-    <span class="k">return</span> <span class="n">list</span><span class="p">(</span><span class="n">set</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">lst</span> <span class="k">if</span> <span class="n">lst</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]))</span> 
-<span class="n">house_type</span> <span class="o">=</span> <span class="n">find_duplicates</span><span class="p">(</span><span class="n">airbnb1</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">house_type</span><span class="p">)</span> 
-<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="ss">house_type: 
-    </span><span class="c1">#print(str(i[0])) </span>
-    <span class="n">sublist</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">.</span><span class="nf">loc</span><span class="p">[</span><span class="n">airbnb</span><span class="p">[</span><span class="s1">'room_type'</span><span class="p">]</span> <span class="o">==</span> <span class="n">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> 
-    <span class="n">num</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">sublist</span><span class="p">.</span><span class="nf">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
-    <span class="nb">name</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> 
-<span class="n">plt</span><span class="p">.</span><span class="nf">barh</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span> 
+<span class="n">num</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">name</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">airbnb_list</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">.</span><span class="nf">transpose</span><span class="p">()</span>
+<span class="n">airbnb1</span> <span class="o">=</span> <span class="n">airbnb_list</span><span class="p">.</span><span class="nf">values</span><span class="p">.</span><span class="nf">tolist</span><span class="p">()</span>
+
+<span class="c1"># define a function to find duplicates</span>
+<span class="k">def</span> <span class="nf">find_duplicates</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">list</span><span class="p">(</span><span class="n">set</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">lst</span> <span class="k">if</span> <span class="n">lst</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]))</span>
+
+<span class="c1"># find the duplicate house types</span>
+<span class="n">house_type</span> <span class="o">=</span> <span class="n">find_duplicates</span><span class="p">(</span><span class="n">airbnb1</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
+
+<span class="c1"># find names and numbers for each house type</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="ss">house_type:
+    </span><span class="c1"># print(str(i[0]))</span>
+    <span class="n">sublist</span> <span class="o">=</span> <span class="n">airbnb</span><span class="p">.</span><span class="nf">loc</span><span class="p">[</span><span class="n">airbnb</span><span class="p">[</span><span class="s1">'room_type'</span><span class="p">]</span> <span class="o">==</span> <span class="n">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+    <span class="n">num</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">sublist</span><span class="p">.</span><span class="nf">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="nb">name</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+<span class="c1"># plotting</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">barh</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
 <span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
 </code></pre></div></div>
+  
 <p>
   In the Airbnb dataset, the last column contains license data, but understanding the types of licenses requires knowledge of the patterns associated with these licenses. After investigation, we determined that the types of licenses correspond to different room types. Therefore, the statistics on license types can be simplified into statistics on room type categories. The final results are illustrated in Figure 4.
 </p>
