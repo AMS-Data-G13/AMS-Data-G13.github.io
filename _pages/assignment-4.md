@@ -162,10 +162,11 @@ end_centrality = nx.closeness_centrality(graph, nodes_to[0])
 print(start_centrality,cen_centrality,end_centrality)
 ```
 
+|Point       |Node                |
+|------------|--------------------|
 |Start point |0.014975167550752658|
 |Center point|0.016698413110206794|
 |End point   |0.014168299848680767|
-
 
 The results are largely consistent with our expectations. The center point is indeed closer to the center of Amsterdam, which makes it more accessible to other points on the map. However, it's important to note that the calculated results can vary based on factors such as the selected map size and the parameters used, including the choice of the center point.
 
