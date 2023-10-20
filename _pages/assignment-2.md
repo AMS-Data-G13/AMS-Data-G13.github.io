@@ -46,6 +46,12 @@ On August 12 to 14, 2022 it was dry and the maximum temperature averaged 31 degr
 
 ### - Try to compare the energy use of the canal boats to some other activities in the city. Use canal boats more or less energy in relation to their carbon footprint compared to these other activities?
 
+According to emission free mobility agenda from Amsterdam’s municipality (figure 6), out of all of the CO2 emissions from urban transport, passenger boats comprise just 1% and leisure boats add up to less than >1%. For Nitrogen oxides (NOₓ), passenger boats are accountable for 10% and leisure boats for les tan >1%. Out of all the Fine Particles (PM10) generated, passenger boats account for 9% and leisure vessels for >1%. Lastly, for Fine Particles (PM2.5) passenger boats account for 24% and leisure boats for 4% of the total.  
+
+In comparison for CO2 canalboats represent less than >2% of emissions while private cars represent 69% and urban fright vans and trucks represent 11% and 7% accordingly. Private cars contribute more than 34.5 times more CO2 for urban transportation than passenger and leisure boats combined.
+
+
+
 ### - Would you consider it economically feasible?
 
 ### - How many support boats and vehicles are needed for the Paralympics event only?
