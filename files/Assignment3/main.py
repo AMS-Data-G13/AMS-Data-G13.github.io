@@ -83,10 +83,14 @@ if __name__ == '__main__':
         count.append(len(a))
     print(count)
     room_type_count = pd.DataFrame([count], columns = house_type)
-    #Question 4-2
-    # check the amount of rooms which is available all year
-    num_rented = len(airbnb.query('availability_365 < 365'))
-    print(num_rented)
+    
+   #Question 4-2
+    
+   # check the amount of rooms which is available all year
+   rooms = sum(count)
+   num_rented = len(airbnb.query('availability_365 < 365'))
+   normal = rooms - num_rented
+   print(normal)
 
 
 ## Some additional thoughts on the questions
