@@ -8,6 +8,12 @@ author_profile: true
 First, we selected the starting and ending points for our route, which were AMS Institute and the Rijksmuseum, respectively. We then identified the nearest points on the Amsterdam canals corresponding to these two locations. 
 
 ```ruby
+import osmnx as ox
+import networkx as nx
+import pickle
+import matplotlib.pyplot as plt
+import pandas as pd
+
 # 4.0 plotting the route
 ox.config(use_cache=True, log_console=True) 
 city = ox.graph_from_place('Amsterdam', retain_all=False, truncate_by_edge=False, 
