@@ -9,7 +9,13 @@ author_profile: true
   First, we selected the starting and ending points for our route, which were AMS Institute and the Rijksmuseum, respectively. We then identified the nearest points on the Amsterdam canals corresponding to these two locations.
 </p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 4.0 plotting the route</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">import</span> <span class="n">osmnx</span> <span class="n">as</span> <span class="n">ox</span>
+<span class="n">import</span> <span class="n">networkx</span> <span class="n">as</span> <span class="n">nx</span>
+<span class="n">import</span> <span class="n">pickle</span>
+<span class="n">import</span> <span class="n">matplotlib</span><span class="p">.</span><span class="nf">pyplot</span> <span class="n">as</span> <span class="n">plt</span>
+<span class="n">import</span> <span class="n">pandas</span> <span class="n">as</span> <span class="n">pd</span>
+
+<span class="c1"># 4.0 plotting the route</span>
 <span class="n">ox</span><span class="p">.</span><span class="nf">config</span><span class="p">(</span><span class="n">use_cache</span><span class="o">=</span><span class="no">True</span><span class="p">,</span> <span class="n">log_console</span><span class="o">=</span><span class="no">True</span><span class="p">)</span> 
 <span class="n">city</span> <span class="o">=</span> <span class="n">ox</span><span class="p">.</span><span class="nf">graph_from_place</span><span class="p">(</span><span class="s1">'Amsterdam'</span><span class="p">,</span> <span class="n">retain_all</span><span class="o">=</span><span class="no">False</span><span class="p">,</span> <span class="n">truncate_by_edge</span><span class="o">=</span><span class="no">False</span><span class="p">,</span> 
                         <span class="n">simplify</span><span class="o">=</span><span class="no">True</span><span class="p">,</span> <span class="n">custom_filter</span><span class="o">=</span><span class="s1">'["waterway"~"canal"]'</span><span class="p">)</span> 
