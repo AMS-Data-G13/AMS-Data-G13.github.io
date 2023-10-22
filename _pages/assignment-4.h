@@ -30,7 +30,7 @@ author_profile: true
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ox</span><span class="p">.</span><span class="nf">plot_graph_route</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">bbox</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="no">False</span><span class="p">,</span> <span class="n">close</span><span class="o">=</span><span class="no">False</span><span class="p">)</span> 
 </code></pre></div></div>
 
-<iframe src="/files/map1.html" height="500" width="500"></iframe>
+<iframe src="/files/map1.html" height="720" width="960"></iframe>
 
 <p>
   Using these two points, we plotted the shortest path, which became the course for our activity. The path is shown in Figure 1 (luckily it’s over 5 km). Combining the knowledge from Assignments 1 and 2, we chose a route that avoided areas of poor water quality and was therefore a good choice.
